@@ -1,0 +1,15 @@
+.TaskItem {
+  display: flex;
+}
+.TaskItem-title,
+.TaskItem-action {
+  margin-right: 10px;
+}
+
+.TaskItem-deadline_error {
+  border: 1px solid red;
+}
+
+.TaskItem-time {
+  display: flex;
+}
