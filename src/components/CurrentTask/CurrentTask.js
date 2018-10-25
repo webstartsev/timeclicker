@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CurrentTask.css';
 
-const CurrentTask = ({ currentTask = {}, time = '' }) => {
+import { secToTime } from '../../helpers/function';
+
+const CurrentTask = ({ currentTask = {} }) => {
   return (
     <div className="CurrentTask">
       <div className="CurrentTask-wrapper">
         <div className="CurrentTask-title">{currentTask.title}</div>
-        <div className="CurrentTask-time">{time}</div>
+        <div className="CurrentTask-time">{secToTime(currentTask.time)}</div>
       </div>
     </div>
   );

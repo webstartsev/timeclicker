@@ -16,7 +16,8 @@ class App extends Component {
       tasks: dataTasks,
       currentTask: null,
       time: 0,
-      timerId: null
+      timerId: null,
+      user: 'Сергей Старцев'
     };
 
     this.addTask = this.addTask.bind(this);
@@ -81,7 +82,7 @@ class App extends Component {
 
     const timerId = setInterval(() => {
       let tiktak = time++;
-      this.setState({ currentTask: { ...task, time: tiktak }, time: tiktak });
+      this.setState({ currentTask: { ...task, time: tiktak, status: 'start' }, time: tiktak });
     }, 1000);
 
     this.setState({ currentTask: { ...task, status: 'start' }, time, timerId });
@@ -96,7 +97,7 @@ class App extends Component {
   }
 
   render() {
-    const { tasks, time, currentTask } = this.state;
+    const { tasks, currentTask, user } = this.state;
     const { addTask, taskAction, changeDeadline } = this;
     return (
       <div className="App">
@@ -105,10 +106,10 @@ class App extends Component {
           data={tasks}
           onAction={taskAction}
           currentTask={currentTask}
-          time={time}
+          user={user}
           onChangeDeadline={changeDeadline}
         />
-        {currentTask && <CurrentTask currentTask={currentTask} time={secToTime(time)} />}
+        {currentTask && <CurrentTask currentTask={currentTask} />}
       </div>
     );
   }

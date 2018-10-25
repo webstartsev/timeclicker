@@ -8,7 +8,7 @@ const TaskList = ({
   data = [],
   currentTask = {},
   onAction = f => f,
-  time = 0,
+  user = '',
   onChangeDeadline = f => f
 }) => {
   return (
@@ -28,7 +28,7 @@ const TaskList = ({
           currentTask={currentTask}
           task={task}
           onAction={onAction}
-          time={time}
+          user={user}
           onChangeDeadline={onChangeDeadline}
         />
       ))}
@@ -40,7 +40,7 @@ TaskList.propTypes = {
   data: PropTypes.array,
   onAction: PropTypes.func,
   currentTask: PropTypes.object,
-  time: PropTypes.number,
+  user: PropTypes.string,
   onChangeDeadline: PropTypes.func
 };
 
