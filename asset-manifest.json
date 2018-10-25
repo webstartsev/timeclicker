@@ -1,13 +1,13 @@
 {
-  "main.css": "/timeclicker/static/css/main.84b635bc.chunk.css",
-  "main.js": "/timeclicker/static/js/main.7ed6ab3c.chunk.js",
-  "main.js.map": "/timeclicker/static/js/main.7ed6ab3c.chunk.js.map",
+  "main.css": "/timeclicker/static/css/main.e8a79f82.chunk.css",
+  "main.js": "/timeclicker/static/js/main.f32d38f9.chunk.js",
+  "main.js.map": "/timeclicker/static/js/main.f32d38f9.chunk.js.map",
   "static/js/1.f22bf7c3.chunk.js": "/timeclicker/static/js/1.f22bf7c3.chunk.js",
   "static/js/1.f22bf7c3.chunk.js.map": "/timeclicker/static/js/1.f22bf7c3.chunk.js.map",
   "runtime~main.js": "/timeclicker/static/js/runtime~main.5e39d4eb.js",
   "runtime~main.js.map": "/timeclicker/static/js/runtime~main.5e39d4eb.js.map",
-  "static/css/main.84b635bc.chunk.css.map": "/timeclicker/static/css/main.84b635bc.chunk.css.map",
+  "static/css/main.e8a79f82.chunk.css.map": "/timeclicker/static/css/main.e8a79f82.chunk.css.map",
   "index.html": "/timeclicker/index.html",
-  "precache-manifest.d2d9917c50884d19e8cc2336bead798e.js": "/timeclicker/precache-manifest.d2d9917c50884d19e8cc2336bead798e.js",
+  "precache-manifest.5fba61313eaabd19d1d112ec0908befe.js": "/timeclicker/precache-manifest.5fba61313eaabd19d1d112ec0908befe.js",
   "service-worker.js": "/timeclicker/service-worker.js"
 }
