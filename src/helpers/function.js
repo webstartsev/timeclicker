@@ -1,4 +1,4 @@
-function secToTime(time) {
+function secToTime(time, full = false) {
   // Перевод СЕКУНД во время
   // Hours, minutes and seconds
   const hrs = ~~(time / 3600);
@@ -6,12 +6,18 @@ function secToTime(time) {
   const secs = time % 60;
   // Output like "1:01" or "4:03:59" or "123:03:59"
   let ret = '';
-  if (hrs > 0) {
+  if(full){
     ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
-    ret += mins < 10 ? '0' + mins + ':' : mins;
-  } else {
     ret += mins < 10 ? '0' + mins + ':' : mins + ':';
     ret += secs < 10 ? '0' + secs : secs;
+  } else {
+    if (hrs > 0) {
+      ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
+      ret += mins < 10 ? '0' + mins : mins;
+    } else {
+      ret += mins < 10 ? '0' + mins + ':' : mins + ':';
+      ret += secs < 10 ? '0' + secs : secs;
+    }
   }
 
   return ret;
