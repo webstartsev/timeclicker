@@ -82,10 +82,16 @@ class App extends Component {
 
     const timerId = setInterval(() => {
       let tiktak = time++;
+
+      
+      this.setTitle(tiktak);
       this.setState({ currentTask: { ...task, time: tiktak, status: 'start' }, time: tiktak });
     }, 1000);
 
     this.setState({ currentTask: { ...task, status: 'start' }, time, timerId });
+  }
+  setTitle(tiktak){
+    document.title = secToTime(tiktak, true);
   }
   stopTask() {
     clearTimeout(this.state.timerId);
