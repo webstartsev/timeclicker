@@ -24,7 +24,6 @@ function secToTime(time, full = false) {
 }
 
 function timeDiff(time, deadline) {
-  time = 7800;
   const deadlineTime = deadline * 60 * 60;
   const diff = deadlineTime - time;
 
