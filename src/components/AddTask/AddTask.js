@@ -22,8 +22,10 @@ class AddTask extends React.Component {
   render() {
     return (
       <form className="AddTask" onSubmit={this.submit}>
-        <input ref="_title" className="AddTask-input" />
-        <input type="submit" value="Добавить" />
+        <div className="AddTask-wrap">
+          <input ref="_title" className="AddTask-input" />
+          <input type="submit" value="Добавить" />
+        </div>
       </form>
     );
   }

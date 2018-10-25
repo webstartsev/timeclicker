@@ -1,5 +1,5 @@
 function secToTime(time) {
-  //Перевод СЕКУНД во время
+  // Перевод СЕКУНД во время
   // Hours, minutes and seconds
   const hrs = ~~(time / 3600);
   const mins = ~~((time % 3600) / 60);
@@ -7,13 +7,24 @@ function secToTime(time) {
   // Output like "1:01" or "4:03:59" or "123:03:59"
   let ret = '';
   if (hrs > 0) {
-    ret += hrs + 'ч';
+    ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
+    ret += mins < 10 ? '0' + mins + ':' : mins;
+  } else {
+    ret += mins < 10 ? '0' + mins + ':' : mins + ':';
+    ret += secs < 10 ? '0' + secs : secs;
   }
-  if (mins > 0) {
-    ret += ' ' + mins + 'м';
-  }
-  ret += ' ' + secs + 'с';
+
   return ret;
 }
 
-export { secToTime };
+function timeDiff(time, deadline) {
+  time = 7800;
+  const deadlineTime = deadline * 60 * 60;
+  const diff = deadlineTime - time;
+
+  const hrs = ~~(diff / 3600);
+
+  return hrs;
+}
+
+export { secToTime, timeDiff };

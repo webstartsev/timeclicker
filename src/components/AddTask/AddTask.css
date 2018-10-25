@@ -1,0 +1,15 @@
+.AddTask {
+  padding: 20px 0;
+}
+.AddTask-wrap {
+  display: flex;
+}
+.AddTask-input {
+  flex-basis: 100%;
+  margin-right: 10px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  font-size: 24px;
+  border: none;
+  border-bottom: 1px solid #b1b1b1;
+}

@@ -1,15 +1,51 @@
 .TaskItem {
   display: flex;
-}
-.TaskItem-title,
-.TaskItem-action {
-  margin-right: 10px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
 }
 
-.TaskItem-deadline_error {
-  border: 1px solid red;
+.TaskItem-title {
+  margin: 5px 0;
+  max-width: 55%;
+}
+.TaskItem-action,
+.TaskItem-time,
+.TaskItem-deadline,
+.TaskItem-diff {
+  justify-content: flex-end;
+}
+.TaskItem-time,
+.TaskItem-deadline,
+.TaskItem-diff {
+  width: 100px;
 }
 
 .TaskItem-time {
   display: flex;
+}
+.TaskItem-detail {
+  display: flex;
+}
+
+.TaskItem-times {
+  display: flex;
+}
+.TaskItem-action,
+.TaskItem-time,
+.TaskItem-deadline,
+.TaskItem-diff {
+  align-items: center;
+  display: flex;
+}
+.TaskItem-btn {
+  cursor: pointer;
+}
+.TaskItem-btn:not(:last-of-type) {
+  margin-right: 5px;
+}
+
+.TaskItem-diff_error {
+  color: #d0021b;
 }

@@ -4,6 +4,7 @@ import './App.css';
 
 import TaskList from '../TaskList/TaskList';
 import AddTask from '../AddTask/AddTask';
+import CurrentTask from '../CurrentTask/CurrentTask';
 
 import dataTasks from '../../data/task';
 import { secToTime } from '../../helpers/function';
@@ -14,7 +15,8 @@ class App extends Component {
     this.state = {
       tasks: dataTasks,
       currentTask: null,
-      time: 0
+      time: 0,
+      timerId: null
     };
 
     this.addTask = this.addTask.bind(this);
@@ -43,19 +45,14 @@ class App extends Component {
     const tasks = this.state.tasks.map(task => {
       if (task.id === id) {
         switch (action) {
-          case 'play':
-            this.startTask(task);
-            break;
           case 'stop':
             this.stopTask();
             break;
-          case 'pause':
-            this.pauseTask();
-            break;
           default:
+            this.startTask(task);
             break;
         }
-        console.log('this.state.time: ', this.state.time);
+
         return {
           ...task,
           status: action,
@@ -65,7 +62,7 @@ class App extends Component {
         if (task.status === 'play') {
           return {
             ...task,
-            status: 'pause'
+            status: 'stop'
           };
         }
       }
@@ -77,19 +74,20 @@ class App extends Component {
 
   startTask(task) {
     let time = task.time;
-    this.setState({ currentTask: task, time });
 
-    this.timerId = setInterval(() => {
+    if (this.state.timerId !== null) {
+      clearTimeout(this.state.timerId);
+    }
+
+    const timerId = setInterval(() => {
       let tiktak = time++;
-      this.setState({ time: tiktak });
+      this.setState({ currentTask: { ...task, time: tiktak }, time: tiktak });
     }, 1000);
+
+    this.setState({ currentTask: { ...task, status: 'start' }, time, timerId });
   }
   stopTask() {
-    clearTimeout(this.timerId);
-    this.setState({ currentTask: null });
-  }
-  pauseTask() {
-    clearTimeout(this.timerId);
+    clearTimeout(this.state.timerId);
     this.setState({ currentTask: null });
   }
 
@@ -98,7 +96,7 @@ class App extends Component {
   }
 
   render() {
-    const { tasks, time } = this.state;
+    const { tasks, time, currentTask } = this.state;
     const { addTask, taskAction, changeDeadline } = this;
     return (
       <div className="App">
@@ -106,10 +104,11 @@ class App extends Component {
         <TaskList
           data={tasks}
           onAction={taskAction}
+          currentTask={currentTask}
           time={time}
           onChangeDeadline={changeDeadline}
         />
-        <div className="Timer">{time !== 0 && secToTime(time)}</div>
+        {currentTask && <CurrentTask currentTask={currentTask} time={secToTime(time)} />}
       </div>
     );
   }
