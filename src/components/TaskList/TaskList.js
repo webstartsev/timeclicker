@@ -5,7 +5,7 @@ import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
 
 const TaskList = ({
-  data = [],
+  tasks = {},
   currentTask = {},
   onAction = f => f,
   user = '',
@@ -22,11 +22,11 @@ const TaskList = ({
           <div className="TaskList-col">Разница</div>
         </div>
       </div>
-      {data.map(task => (
+      {Object.keys(tasks).map(id => (
         <TaskItem
-          key={task.id}
-          currentTask={currentTask}
-          task={task}
+          key={id}
+          id={id}
+          tasks={tasks}
           onAction={onAction}
           user={user}
           onChangeDeadline={onChangeDeadline}
@@ -37,7 +37,7 @@ const TaskList = ({
 };
 
 TaskList.propTypes = {
-  data: PropTypes.array,
+  tasks: PropTypes.object,
   onAction: PropTypes.func,
   currentTask: PropTypes.object,
   user: PropTypes.string,

@@ -43,37 +43,49 @@ class App extends Component {
   }
 
   taskAction(id, action) {
-    const tasks = this.state.tasks.map(task => {
-      if (task.id === id) {
-        switch (action) {
-          case 'stop':
-            this.stopTask();
-            break;
-          default:
-            this.startTask(task);
-            break;
-        }
+    switch (action) {
+      case 'stop':
+        this.stopTask(id);
+        break;
+      default:
+        this.startTask(id);
+        break;
+    }
 
-        return {
-          ...task,
-          status: action,
-          time: this.state.time
-        };
-      } else {
-        if (task.status === 'play') {
-          return {
-            ...task,
-            status: 'stop'
-          };
-        }
-      }
-      return task;
-    });
+    // const tasks = this.state.tasks.map(task => {
+    //   if (task.id === id) {
+    //     switch (action) {
+    //       case 'stop':
+    //         this.stopTask();
+    //         break;
+    //       default:
+    //         this.startTask(task);
+    //         break;
+    //     }
 
-    this.setState({ tasks });
+    //     return {
+    //       ...task,
+    //       status: action,
+    //       time: this.state.time
+    //     };
+    //   } else {
+    //     if (task.status === 'play') {
+    //       return {
+    //         ...task,
+    //         status: 'stop'
+    //       };
+    //     }
+    //   }
+    //   return task;
+    // });
+
+    // this.setState({ tasks });
   }
 
-  startTask(task) {
+  startTask(id) {
+    const { tasks, user } = this.state;
+    const task = tasks[id];
+
     let time = task.time;
 
     if (this.state.timerId !== null) {
@@ -84,10 +96,31 @@ class App extends Component {
       let tiktak = time++;
 
       this.setTitle(tiktak);
-      this.setState({ currentTask: { ...task, time: tiktak, status: 'play' }, time: tiktak });
+      this.setState({
+        tasks: {
+          ...tasks,
+          [id]: {
+            ...tasks[id],
+            status: 'play',
+            user: user,
+            time: tiktak
+          }
+        }
+      });
     }, 1000);
 
-    this.setState({ currentTask: { ...task, status: 'play' }, time, timerId });
+    this.setState({
+      timerId: timerId,
+      currentTaskId: id,
+      tasks: {
+        ...tasks,
+        [id]: {
+          ...tasks[id],
+          status: 'play',
+          user: user
+        }
+      }
+    });
   }
   setTitle(tiktak) {
     document.title = secToTime(tiktak, true);
@@ -108,7 +141,7 @@ class App extends Component {
       <div className="App">
         <AddTask onSubmit={addTask} />
         <TaskList
-          data={tasks}
+          tasks={tasks}
           onAction={taskAction}
           currentTask={currentTask}
           user={user}

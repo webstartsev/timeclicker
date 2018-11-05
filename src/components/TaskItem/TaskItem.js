@@ -7,35 +7,22 @@ import { secToTime, timeDiff } from '../../helpers/function';
 export class TaskItem extends React.Component {
   // Если новый рейтинг остался таким же, как и в текущих свойствах,
   // то не надо обновлять компонент.
-  shouldComponentUpdate(nextProps) {
-    const { task, currentTask } = this.props;
-
-    if (task.status !== nextProps.task.status) {
-      return true;
-    }
-
-    if (currentTask !== null) {
-      if (currentTask.id === nextProps.task.id && currentTask.time !== nextProps.time) {
-        return true;
-      }
-    }
-
-    return false;
-  }
 
   render() {
-    const { task, currentTask, user, onAction } = this.props;
+    const { tasks, onAction, id } = this.props;
+    const task = tasks[id];
 
-    if (currentTask !== null) {
-      const diff = timeDiff(currentTask.time, task.deadline);
-      return (
-        <div className="TaskItem">
-          <div className="TaskItem-title">
-            {currentTask.title}
-            <span className="TaskItem-user">{user}</span>
-          </div>
-          <div className="TaskItem-detail">
-            <div className="TaskItem-action">
+    const diff = timeDiff(task.time, task.deadline);
+    console.log('task.status: ', task.status);
+    return (
+      <div className="TaskItem">
+        <div className="TaskItem-title">
+          {task.title}
+          {task.user !== null && <span className="TaskItem-user">{task.user}</span>}
+        </div>
+        <div className="TaskItem-detail">
+          <div className="TaskItem-action">
+            {task.status === 'play' ? (
               <button
                 onClick={() => onAction(task.id, 'stop')}
                 className="TaskItem-btn TaskItem_type_play"
@@ -45,26 +32,9 @@ export class TaskItem extends React.Component {
                   <path d="M256,11C120.9,11,11,120.9,11,256s109.9,245,245,245s245-109.9,245-245S391.1,11,256,11z M256,480.1    C132.4,480.1,31.9,379.6,31.9,256S132.4,31.9,256,31.9S480.1,132.4,480.1,256S379.6,480.1,256,480.1z" />
                 </svg>
               </button>
-            </div>
-            <div className="TaskItem-times">
-              <div className="TaskItem-time">{secToTime(currentTask.time)}</div>
-              <div className="TaskItem-deadline">{currentTask.deadline}</div>
-              <div className={diff < 0 ? 'TaskItem-diff TaskItem-diff_error' : 'TaskItem-diff'}>
-                {currentTask.deadline !== 0 && diff}
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      const diff = timeDiff(task.time, task.deadline);
-      return (
-        <div className="TaskItem">
-          <div className="TaskItem-title">{task.title}</div>
-          <div className="TaskItem-detail">
-            <div className="TaskItem-action">
+            ) : (
               <button
-                onClick={() => onAction(task.id, 'play')}
+                onClick={() => onAction(id, 'play')}
                 className="TaskItem-btn TaskItem_type_stop"
               >
                 <svg
@@ -78,18 +48,18 @@ export class TaskItem extends React.Component {
                   <path d="m304 368c-8.835938 0-16-7.164062-16-16v-192c0-8.835938 7.164062-16 16-16s16 7.164062 16 16v192c0 8.835938-7.164062 16-16 16zm0 0" />
                 </svg>
               </button>
-            </div>
-            <div className="TaskItem-times">
-              <div className="TaskItem-time">{secToTime(task.time)}</div>
-              <div className="TaskItem-deadline">{task.deadline}</div>
-              <div className={diff < 0 ? 'TaskItem-diff TaskItem-diff_error' : 'TaskItem-diff'}>
-                {task.deadline !== 0 && diff}
-              </div>
+            )}
+          </div>
+          <div className="TaskItem-times">
+            <div className="TaskItem-time">{secToTime(task.time)}</div>
+            <div className="TaskItem-deadline">{task.deadline}</div>
+            <div className={diff < 0 ? 'TaskItem-diff TaskItem-diff_error' : 'TaskItem-diff'}>
+              {task.deadline !== 0 && diff}
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
