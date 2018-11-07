@@ -26,14 +26,14 @@ class App extends Component {
     this.changeDeadline = this.changeDeadline.bind(this);
   }
 
-  addTask(value) {
+  addTask(title, deadline) {
     this.setState(prevState => ({
       taskList: {
         [v4()]: {
-          title: value,
+          title: title,
           status: 'stop',
           time: null,
-          deadline: null,
+          deadline: deadline || null,
           user: null
         },
         ...prevState.taskList

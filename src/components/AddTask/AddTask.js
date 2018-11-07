@@ -10,12 +10,21 @@ class AddTask extends React.Component {
   }
 
   submit(e) {
-    const { _title } = this.refs;
+    const { _title, _deadline } = this.refs;
     const { onSubmit } = this.props;
     e.preventDefault();
     if (_title.value !== '') {
-      onSubmit(_title.value);
+      onSubmit(_title.value, _deadline.value);
       _title.value = '';
+      _deadline.value = '';
+    }
+  }
+  changeDeadline(e) {
+    if (isNaN(Number.parseInt(e.target.value))) {
+      e.target.value = '';
+    }
+    if (e.target.value.length > 4) {
+      e.target.value = e.target.value.slice(0, -1);
     }
   }
 
@@ -24,7 +33,12 @@ class AddTask extends React.Component {
       <form className="AddTask" onSubmit={this.submit}>
         <div className="AddTask-wrap">
           <input ref="_title" className="AddTask-input" />
-          <input type="submit" value="Добавить" />
+          <input
+            ref="_deadline"
+            onChange={this.changeDeadline}
+            className="AddTask-input AddTask-input_size_s"
+          />
+          <input type="submit" className="AddTask-btn" value="Добавить" />
         </div>
       </form>
     );

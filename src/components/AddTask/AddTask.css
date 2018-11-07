@@ -5,11 +5,27 @@
   display: flex;
 }
 .AddTask-input {
-  flex-basis: 100%;
+  width: 80%;
   margin-right: 10px;
   box-sizing: border-box;
   padding: 5px 10px;
   font-size: 24px;
   border: none;
   border-bottom: 1px solid #b1b1b1;
+}
+
+.AddTask-input_size_s {
+  width: 10%;
+}
+
+.AddTask-btn {
+  width: 10%;
+  padding: 5px 10px;
+  background: #e67e22;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #b96318;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
 }
