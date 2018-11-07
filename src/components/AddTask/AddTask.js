@@ -32,11 +32,12 @@ class AddTask extends React.Component {
     return (
       <form className="AddTask" onSubmit={this.submit}>
         <div className="AddTask-wrap">
-          <input ref="_title" className="AddTask-input" />
+          <input ref="_title" className="AddTask-input" placeholder="Название задачи" />
           <input
             ref="_deadline"
             onChange={this.changeDeadline}
             className="AddTask-input AddTask-input_size_s"
+            placeholder="срок, ч."
           />
           <input type="submit" className="AddTask-btn" value="Добавить" />
         </div>
