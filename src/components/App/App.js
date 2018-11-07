@@ -13,11 +13,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: dataTasks,
-      currentTask: null,
+      taskList: dataTasks,
+      currentTaskId: null,
       time: 0,
       timerId: null,
-      user: 'Сергей Старцев'
+      user: {
+        name: 'Сергей Старцев'
+      }
     };
 
     this.addTask = this.addTask.bind(this);
@@ -26,20 +28,18 @@ class App extends Component {
   }
 
   addTask(value) {
-    const task = this._prepareTask(value);
-    const tasks = [task, ...this.state.tasks];
-
-    this.setState({ tasks });
-  }
-
-  _prepareTask(value) {
-    return {
-      id: v4(),
-      title: value,
-      status: 'stop',
-      time: null,
-      deadline: null
-    };
+    this.setState(prevState => ({
+      taskList: {
+        [v4()]: {
+          title: value,
+          status: 'stop',
+          time: null,
+          deadline: null,
+          user: null
+        },
+        ...prevState.taskList
+      }
+    }));
   }
 
   taskAction(id, action) {
@@ -51,58 +51,34 @@ class App extends Component {
         this.startTask(id);
         break;
     }
-
-    // const tasks = this.state.tasks.map(task => {
-    //   if (task.id === id) {
-    //     switch (action) {
-    //       case 'stop':
-    //         this.stopTask();
-    //         break;
-    //       default:
-    //         this.startTask(task);
-    //         break;
-    //     }
-
-    //     return {
-    //       ...task,
-    //       status: action,
-    //       time: this.state.time
-    //     };
-    //   } else {
-    //     if (task.status === 'play') {
-    //       return {
-    //         ...task,
-    //         status: 'stop'
-    //       };
-    //     }
-    //   }
-    //   return task;
-    // });
-
-    // this.setState({ tasks });
   }
 
   startTask(id) {
-    const { tasks, user } = this.state;
-    const task = tasks[id];
-
-    let time = task.time;
+    const { taskList, user, currentTaskId } = this.state;
 
     if (this.state.timerId !== null) {
       clearTimeout(this.state.timerId);
     }
 
+    // Останавливаем текущую задачу
+    if (currentTaskId !== null) {
+      taskList[currentTaskId].status = 'stop';
+      taskList[currentTaskId].user = null;
+    }
+
+    taskList[id].status = 'play';
+    taskList[id].user = user.name;
+
+    let time = taskList[id].time;
     const timerId = setInterval(() => {
       let tiktak = time++;
 
       this.setTitle(tiktak);
       this.setState({
-        tasks: {
-          ...tasks,
+        taskList: {
+          ...this.state.taskList,
           [id]: {
-            ...tasks[id],
-            status: 'play',
-            user: user,
+            ...this.state.taskList[id],
             time: tiktak
           }
         }
@@ -111,23 +87,27 @@ class App extends Component {
 
     this.setState({
       timerId: timerId,
-      currentTaskId: id,
-      tasks: {
-        ...tasks,
-        [id]: {
-          ...tasks[id],
-          status: 'play',
-          user: user
-        }
-      }
+      currentTaskId: id
     });
   }
   setTitle(tiktak) {
     document.title = secToTime(tiktak, true);
   }
-  stopTask() {
+  stopTask(id) {
     clearTimeout(this.state.timerId);
-    this.setState({ currentTask: null });
+
+    const { taskList } = this.state;
+    this.setState({
+      currentTaskId: null,
+      taskList: {
+        ...taskList,
+        [id]: {
+          ...taskList[id],
+          status: 'stop',
+          user: null
+        }
+      }
+    });
   }
 
   changeDeadline(value) {
@@ -135,19 +115,19 @@ class App extends Component {
   }
 
   render() {
-    const { tasks, currentTask, user } = this.state;
+    const { taskList, user, currentTaskId } = this.state;
     const { addTask, taskAction, changeDeadline } = this;
     return (
       <div className="App">
         <AddTask onSubmit={addTask} />
         <TaskList
-          tasks={tasks}
+          taskList={taskList}
           onAction={taskAction}
-          currentTask={currentTask}
+          currentTaskId={currentTaskId}
           user={user}
           onChangeDeadline={changeDeadline}
         />
-        {currentTask && <CurrentTask currentTask={currentTask} />}
+        {currentTaskId && <CurrentTask currentTask={taskList[currentTaskId]} />}
       </div>
     );
   }

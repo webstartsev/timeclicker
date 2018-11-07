@@ -5,8 +5,8 @@ import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
 
 const TaskList = ({
-  tasks = {},
-  currentTask = {},
+  taskList = {},
+  currentTaskId = {},
   onAction = f => f,
   user = '',
   onChangeDeadline = f => f
@@ -22,13 +22,14 @@ const TaskList = ({
           <div className="TaskList-col">Разница</div>
         </div>
       </div>
-      {Object.keys(tasks).map(id => (
+      {Object.keys(taskList).map(id => (
         <TaskItem
           key={id}
           id={id}
-          tasks={tasks}
+          taskList={taskList}
           onAction={onAction}
           user={user}
+          currentTaskId={currentTaskId}
           onChangeDeadline={onChangeDeadline}
         />
       ))}
@@ -37,9 +38,9 @@ const TaskList = ({
 };
 
 TaskList.propTypes = {
-  tasks: PropTypes.object,
+  taskList: PropTypes.object,
   onAction: PropTypes.func,
-  currentTask: PropTypes.object,
+  currentTaskId: PropTypes.string,
   user: PropTypes.string,
   onChangeDeadline: PropTypes.func
 };

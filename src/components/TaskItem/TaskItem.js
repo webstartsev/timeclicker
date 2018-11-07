@@ -5,15 +5,11 @@ import './TaskItem.css';
 import { secToTime, timeDiff } from '../../helpers/function';
 
 export class TaskItem extends React.Component {
-  // Если новый рейтинг остался таким же, как и в текущих свойствах,
-  // то не надо обновлять компонент.
-
   render() {
-    const { tasks, onAction, id } = this.props;
-    const task = tasks[id];
+    const { taskList, onAction, id } = this.props;
+    const task = taskList[id];
 
     const diff = timeDiff(task.time, task.deadline);
-    console.log('task.status: ', task.status);
     return (
       <div className="TaskItem">
         <div className="TaskItem-title">
@@ -24,7 +20,7 @@ export class TaskItem extends React.Component {
           <div className="TaskItem-action">
             {task.status === 'play' ? (
               <button
-                onClick={() => onAction(task.id, 'stop')}
+                onClick={() => onAction(id, 'stop')}
                 className="TaskItem-btn TaskItem_type_play"
               >
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
