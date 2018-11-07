@@ -62,14 +62,12 @@ export class TaskItem extends React.Component {
 TaskItem.propTypes = {
   task: PropTypes.object,
   onAction: PropTypes.func,
-  user: PropTypes.string,
   currentTask: PropTypes.object
 };
 
 TaskItem.defaultProps = {
   task: {},
   onAction: f => f,
-  user: '',
   currentTask: null
 };
 

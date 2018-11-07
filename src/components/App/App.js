@@ -15,7 +15,6 @@ class App extends Component {
     this.state = {
       taskList: dataTasks,
       currentTaskId: null,
-      time: 0,
       timerId: null,
       user: {
         name: 'Сергей Старцев'
@@ -115,7 +114,7 @@ class App extends Component {
   }
 
   render() {
-    const { taskList, user, currentTaskId } = this.state;
+    const { taskList, currentTaskId } = this.state;
     const { addTask, taskAction, changeDeadline } = this;
     return (
       <div className="App">
@@ -124,7 +123,6 @@ class App extends Component {
           taskList={taskList}
           onAction={taskAction}
           currentTaskId={currentTaskId}
-          user={user}
           onChangeDeadline={changeDeadline}
         />
         {currentTaskId && <CurrentTask currentTask={taskList[currentTaskId]} />}
