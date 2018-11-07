@@ -21,6 +21,7 @@
 .TaskItem-deadline,
 .TaskItem-diff {
   width: 100px;
+  font-size: 12px;
 }
 
 .TaskItem-time {
@@ -50,16 +51,16 @@
 .TaskItem-btn:not(:last-of-type) {
   margin-right: 5px;
 }
-.TaskItem-btn svg{
+.TaskItem-btn svg {
   width: 25px;
   height: 25px;
   fill: #c1c1c1;
 }
 
-.TaskItem_type_play svg{
+.TaskItem_type_play svg {
   fill: #d0021b;
 }
-.TaskItem-diff{
+.TaskItem-diff {
   color: #c1c1c1;
 }
 .TaskItem-diff_error {
