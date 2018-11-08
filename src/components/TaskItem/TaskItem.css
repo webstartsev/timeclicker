@@ -10,6 +10,7 @@
   margin: 5px 0;
   max-width: 55%;
   display: flex;
+  font-size: 16px;
 }
 .TaskItem-action,
 .TaskItem-time,
