@@ -1,10 +1,11 @@
 import React from 'react';
+import './PageTemplate.css';
 
 import { MainMenu } from '../MainMenu/MainMenu';
 
 export const PageTemplate = ({ children }) => (
-  <div className="page">
+  <div className="PageTemplate">
     <MainMenu />
-    {children}
+    <div className="PageTemplate-wrap">{children}</div>
   </div>
 );
