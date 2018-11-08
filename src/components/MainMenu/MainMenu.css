@@ -1,0 +1,27 @@
+.MainMenu {
+  background: #f5f4f4;
+  border-bottom: 1px solid #efefef;
+}
+.MainMenu-wrap {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.MainMenu-item {
+  text-decoration: none;
+  color: #333;
+}
+.MainMenu-item:hover {
+  text-decoration: underline;
+}
+
+.MainMenu-item:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.MainMenu-item_active {
+  color: #e67e21;
+  text-decoration: underline;
+}

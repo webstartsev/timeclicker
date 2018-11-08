@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { v4 } from 'uuid';
 import './App.css';
 
+import { PageTemplate } from '../PageTemplate/PageTemplate';
+
 import TaskList from '../TaskList/TaskList';
 import AddTask from '../AddTask/AddTask';
 import CurrentTask from '../CurrentTask/CurrentTask';
