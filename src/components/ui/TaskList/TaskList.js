@@ -6,8 +6,9 @@ import TaskItem from '../TaskItem/TaskItem';
 
 const TaskList = ({
   tasks = {},
-  currentTaskId = {},
-  onAction = f => f,
+  user = {},
+  startTask = f => f,
+  stopTask = f => f,
   onChangeDeadline = f => f
 }) => {
   return (
@@ -25,9 +26,10 @@ const TaskList = ({
         <TaskItem
           key={id}
           id={id}
+          user={user}
           tasks={tasks}
-          onAction={onAction}
-          currentTaskId={currentTaskId}
+          startTask={startTask}
+          stopTask={stopTask}
           onChangeDeadline={onChangeDeadline}
         />
       ))}
@@ -37,6 +39,7 @@ const TaskList = ({
 
 TaskList.propTypes = {
   tasks: PropTypes.object,
+  user: PropTypes.object,
   currentTaskId: PropTypes.string,
   onAction: PropTypes.func,
   onChangeDeadline: PropTypes.func

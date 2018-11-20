@@ -24,6 +24,10 @@ const initialState = {
       diff: 0,
       user: null
     }
+  },
+  user: {
+    name: 'Sergey Startsev',
+    role: 'admin'
   }
 };
 

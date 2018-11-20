@@ -9,3 +9,22 @@ export const addTask = (title, deadline) => {
     }
   };
 };
+
+export const startTask = (id, user) => {
+  return {
+    type: C.START_TASK,
+    payload: {
+      id: id,
+      user: user
+    }
+  };
+};
+
+export const stopTask = id => {
+  return {
+    type: C.STOP_TASK,
+    payload: {
+      id: id
+    }
+  };
+};

@@ -1,17 +1,20 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { startTask, stopTask } from '../../../store/actions';
 
 import TaskList from '../../ui/TaskList/TaskList';
 
 const putStateToProps = state => {
   return {
-    tasks: state.tasks
+    tasks: state.tasks,
+    user: state.user
   };
 };
 
 const putActionstoProps = dispatch => {
   return {
-    // addTask: bindActionCreators(addTask, dispatch)
+    startTask: bindActionCreators(startTask, dispatch),
+    stopTask: bindActionCreators(stopTask, dispatch)
   };
 };
 

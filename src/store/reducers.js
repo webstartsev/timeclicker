@@ -15,9 +15,44 @@ export const rootReducer = (state, action) => {
             deadline: deadline || null,
             user: null
           },
-          ...state['tasks']
+          ...state.tasks
         }
       };
+    case C.START_TASK: {
+      const { id, user } = action.payload;
+
+      // TODO: Подумать
+      const taskList = Object.keys(state.tasks).reduce((tasks, task) => {
+        return { ...tasks, [task]: { ...state.tasks[task], status: 'stop', user: null } };
+      }, {});
+
+      return {
+        ...state,
+        tasks: {
+          ...taskList,
+          [id]: {
+            ...taskList[id],
+            status: 'play',
+            user: user
+          }
+        }
+      };
+    }
+    case C.STOP_TASK: {
+      const { id } = action.payload;
+      const taskList = state.tasks;
+      return {
+        ...state,
+        tasks: {
+          ...taskList,
+          [id]: {
+            ...taskList[id],
+            status: 'stop',
+            user: null
+          }
+        }
+      };
+    }
     default:
       return state;
   }
