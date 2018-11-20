@@ -1,11 +1,11 @@
 import C from '../helpers/constants';
 
-export const addTask = data => {
+export const addTask = (title, deadline) => {
   return {
     type: C.ADD_TASK,
     payload: {
-      title: data.title,
-      deadline: data.deadline
+      title: title,
+      deadline: deadline
     }
   };
 };

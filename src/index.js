@@ -13,6 +13,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { Page404 } from './pages/Page404';
 import { Tasks } from './pages/Tasks';
+
 const store = createStore(rootReducer, initialState);
 
 ReactDOM.render(

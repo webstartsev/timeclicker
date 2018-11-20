@@ -6,12 +6,16 @@ export const rootReducer = (state, action) => {
     case C.ADD_TASK:
       const { title, deadline } = action.payload;
       return {
-        [v4()]: {
-          title: title,
-          status: 'stop',
-          time: null,
-          deadline: deadline || null,
-          user: null
+        ...state,
+        tasks: {
+          [v4()]: {
+            title: title,
+            status: 'stop',
+            time: 0,
+            deadline: deadline || null,
+            user: null
+          },
+          ...state['tasks']
         }
       };
     default:

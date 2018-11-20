@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TaskItem.css';
 
-import { secToTime, timeDiff } from '../../helpers/function';
+import { secToTime, timeDiff } from '../../../helpers/function';
 
 export class TaskItem extends React.Component {
   render() {
-    const { taskList, onAction, id } = this.props;
-    const task = taskList[id];
+    const { tasks, onAction, id } = this.props;
+    const task = tasks[id];
 
     const diff = timeDiff(task.time, task.deadline);
     return (
@@ -60,15 +60,15 @@ export class TaskItem extends React.Component {
 }
 
 TaskItem.propTypes = {
-  task: PropTypes.object,
+  tasks: PropTypes.object,
   onAction: PropTypes.func,
-  currentTask: PropTypes.object
+  id: PropTypes.string
 };
 
 TaskItem.defaultProps = {
-  task: {},
+  tasks: {},
   onAction: f => f,
-  currentTask: null
+  id: null
 };
 
 export default TaskItem;
