@@ -3,6 +3,7 @@ import { v4 } from 'uuid';
 
 export const rootReducer = (state, action) => {
   switch (action.type) {
+    // TASKS reducers
     case C.ADD_TASK:
       const { title, deadline } = action.payload;
       return {
@@ -35,7 +36,8 @@ export const rootReducer = (state, action) => {
             status: 'play',
             user: user
           }
-        }
+        },
+        currentTask: id
       };
     }
     case C.STOP_TASK: {
@@ -50,9 +52,40 @@ export const rootReducer = (state, action) => {
             status: 'stop',
             user: null
           }
+        },
+        currentTask: null
+      };
+    }
+
+    // INTERVAL reducers
+    case C.INTERVAL_START: {
+      const { timerId } = action.payload;
+      return {
+        ...state,
+        timerId
+      };
+    }
+    case C.INTERVAL_STOP: {
+      return {
+        ...state,
+        timerId: null
+      };
+    }
+    case C.INTERVAL_TIKTAK: {
+      const { id, time } = action.payload;
+      const taskList = state.tasks;
+      return {
+        ...state,
+        tasks: {
+          ...taskList,
+          [id]: {
+            ...taskList[id],
+            time: time
+          }
         }
       };
     }
+
     default:
       return state;
   }

@@ -7,8 +7,12 @@ import TaskItem from '../TaskItem/TaskItem';
 const TaskList = ({
   tasks = {},
   user = {},
+  timerId = null,
   startTask = f => f,
   stopTask = f => f,
+  intervalStart = f => f,
+  intervalStop = f => f,
+  intervalTikTak = f => f,
   onChangeDeadline = f => f
 }) => {
   return (
@@ -28,8 +32,12 @@ const TaskList = ({
           id={id}
           user={user}
           tasks={tasks}
+          timerId={timerId}
           startTask={startTask}
           stopTask={stopTask}
+          intervalStart={intervalStart}
+          intervalStop={intervalStop}
+          intervalTikTak={intervalTikTak}
           onChangeDeadline={onChangeDeadline}
         />
       ))}

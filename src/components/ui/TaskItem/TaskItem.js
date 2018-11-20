@@ -4,9 +4,49 @@ import './TaskItem.css';
 
 import { secToTime, timeDiff } from '../../../helpers/function';
 
-const TaskItem = ({ tasks = {}, user = {}, startTask = f => f, stopTask = f => f, id = null }) => {
+const TaskItem = ({
+  tasks = {},
+  user = {},
+  timerId = null,
+
+  startTask = f => f,
+  stopTask = f => f,
+  intervalStart = f => f,
+  intervalStop = f => f,
+  intervalTikTak = f => f,
+  id = null
+}) => {
   const task = tasks[id];
   const diff = timeDiff(task.time, task.deadline);
+
+  // TODO: WTF? мб перенести в actions.js????? это же компонент представления!!!!
+  const actionTask = (id, status) => {
+    switch (status) {
+      case 'play':
+        if (timerId !== null) {
+          clearInterval(timerId);
+          intervalStop(timerId);
+        }
+
+        let time = task.time;
+        const timer = setInterval(() => {
+          let tiktak = time++;
+          intervalTikTak(id, tiktak);
+        }, 1000);
+
+        startTask(id, user);
+        intervalStart(timer);
+        break;
+      case 'stop':
+        clearInterval(timerId);
+
+        stopTask(id);
+        intervalStop(timerId);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div className="TaskItem">
       <div className="TaskItem-title">
@@ -16,14 +56,20 @@ const TaskItem = ({ tasks = {}, user = {}, startTask = f => f, stopTask = f => f
       <div className="TaskItem-detail">
         <div className="TaskItem-action">
           {task.status === 'play' ? (
-            <button onClick={() => stopTask(id)} className="TaskItem-btn TaskItem_type_play">
+            <button
+              onClick={() => actionTask(id, 'stop')}
+              className="TaskItem-btn TaskItem_type_play"
+            >
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="m354.2,247.4l-135.1-92.4c-4.2-3.1-15.4-3.1-16.3,8.6v184.8c1,11.7 12.4,11.9 16.3,8.6l135.1-92.4c3.5-2.1 8.3-10.7 0-17.2zm-130.5,81.3v-145.4l106.1,72.7-106.1,72.7z" />
                 <path d="M256,11C120.9,11,11,120.9,11,256s109.9,245,245,245s245-109.9,245-245S391.1,11,256,11z M256,480.1    C132.4,480.1,31.9,379.6,31.9,256S132.4,31.9,256,31.9S480.1,132.4,480.1,256S379.6,480.1,256,480.1z" />
               </svg>
             </button>
           ) : (
-            <button onClick={() => startTask(id, user)} className="TaskItem-btn TaskItem_type_stop">
+            <button
+              onClick={() => actionTask(id, 'play')}
+              className="TaskItem-btn TaskItem_type_stop"
+            >
               <svg
                 height="511.99998pt"
                 viewBox="1 1 511.99998 511.99998"

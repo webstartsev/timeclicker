@@ -28,7 +28,9 @@ const initialState = {
   user: {
     name: 'Sergey Startsev',
     role: 'admin'
-  }
+  },
+  timerId: null,
+  currentTask: null
 };
 
 export default initialState;
