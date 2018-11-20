@@ -14,7 +14,11 @@ import { Home } from './pages/Home/Home';
 import { Page404 } from './pages/Page404';
 import { Tasks } from './pages/Tasks';
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(
+  rootReducer,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
