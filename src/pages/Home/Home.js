@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
+import { PageTemplate } from '../../components/ui/PageTemplate/PageTemplate';
 
 import CurrentTask from '../../components/container/CurrentTask/CurrentTask';
 

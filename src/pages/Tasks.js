@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTemplate } from '../components/PageTemplate/PageTemplate';
+import { PageTemplate } from '../components/ui/PageTemplate/PageTemplate';
 
 import AddTaskForm from '../components/container/AddTaskForm/AddTaskForm';
 import TaskList from '../components/container/TaskList/TaskList';
