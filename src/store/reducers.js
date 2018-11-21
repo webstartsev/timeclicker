@@ -37,7 +37,7 @@ export const rootReducer = (state, action) => {
             user: user
           }
         },
-        currentTask: id
+        currentTask: taskList[id]
       };
     }
     case C.STOP_TASK: {
@@ -82,6 +82,10 @@ export const rootReducer = (state, action) => {
             ...taskList[id],
             time: time
           }
+        },
+        currentTask: {
+          ...taskList[id],
+          time: time
         }
       };
     }
