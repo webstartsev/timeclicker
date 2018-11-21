@@ -6,7 +6,7 @@ function secToTime(time, full = false) {
   const secs = time % 60;
   // Output like "1:01" or "4:03:59" or "123:03:59"
   let ret = '';
-  if(full){
+  if (full) {
     ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
     ret += mins < 10 ? '0' + mins + ':' : mins + ':';
     ret += secs < 10 ? '0' + secs : secs;

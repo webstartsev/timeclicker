@@ -18,7 +18,8 @@
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,6 +31,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^2.0.1"
   }
 }
