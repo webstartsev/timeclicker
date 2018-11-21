@@ -16,8 +16,7 @@ const CurrentTask = ({ currentTask = {} }) => {
 };
 
 CurrentTask.propTypes = {
-  currentTask: PropTypes.object,
-  time: PropTypes.string
+  currentTask: PropTypes.object
 };
 
 export default CurrentTask;

@@ -8,7 +8,6 @@ const TaskItem = ({
   tasks = {},
   user = {},
   timerId = null,
-
   startTask = f => f,
   stopTask = f => f,
   intervalStart = f => f,
@@ -97,7 +96,13 @@ const TaskItem = ({
 
 TaskItem.propTypes = {
   tasks: PropTypes.object,
-  onAction: PropTypes.func,
+  user: PropTypes.object,
+  timerId: PropTypes.number,
+  startTask: PropTypes.func,
+  stopTask: PropTypes.func,
+  intervalStart: PropTypes.func,
+  intervalStop: PropTypes.func,
+  intervalTikTak: PropTypes.func,
   id: PropTypes.string
 };
 

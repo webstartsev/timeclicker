@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './AddTaskForm.css';
 
-const AddTaskFrom = ({ addTask }) => {
+const AddTaskFrom = ({ addTask = f => f }) => {
   let _title, _deadline;
 
   const submit = e => {
@@ -41,6 +42,10 @@ const AddTaskFrom = ({ addTask }) => {
       </div>
     </form>
   );
+};
+
+AddTaskFrom.propTypes = {
+  addTask: PropTypes.func
 };
 
 export default AddTaskFrom;

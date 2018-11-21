@@ -48,8 +48,12 @@ const TaskList = ({
 TaskList.propTypes = {
   tasks: PropTypes.object,
   user: PropTypes.object,
-  currentTaskId: PropTypes.string,
-  onAction: PropTypes.func,
+  timerId: PropTypes.number,
+  startTask: PropTypes.func,
+  stopTask: PropTypes.func,
+  intervalStart: PropTypes.func,
+  intervalStop: PropTypes.func,
+  intervalTikTak: PropTypes.func,
   onChangeDeadline: PropTypes.func
 };
 
