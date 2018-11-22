@@ -5,8 +5,8 @@ export const addTask = (title, deadline) => {
   const data = {
     title: title,
     deadline: deadline
-  }
-  const newTaskId = await TaskService.addNewTask(data);
+  };
+  const newTaskId = TaskService.addNewTask(data);
   return {
     type: C.ADD_TASK,
     payload: {
