@@ -1,11 +1,17 @@
 import C from '../helpers/constants';
+import TaskService from '../services/task';
 
 export const addTask = (title, deadline) => {
+  const data = {
+    title: title,
+    deadline: deadline
+  }
+  const newTaskId = await TaskService.addNewTask(data);
   return {
     type: C.ADD_TASK,
     payload: {
-      title: title,
-      deadline: deadline
+      ...data,
+      id: newTaskId
     }
   };
 };

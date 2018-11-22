@@ -1,15 +1,14 @@
 import C from '../helpers/constants';
-import { v4 } from 'uuid';
 
 export const rootReducer = (state, action) => {
   switch (action.type) {
     // TASKS reducers
     case C.ADD_TASK:
-      const { title, deadline } = action.payload;
+      const { title, deadline, id } = action.payload;
       return {
         ...state,
         tasks: {
-          [v4()]: {
+          [id]: {
             title: title,
             status: 'stop',
             time: 0,
@@ -37,7 +36,11 @@ export const rootReducer = (state, action) => {
             user: user
           }
         },
-        currentTask: taskList[id]
+        currentTask: {
+          ...taskList[id],
+          status: 'play',
+          user: user
+        }
       };
     }
     case C.STOP_TASK: {
