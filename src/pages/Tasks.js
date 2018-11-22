@@ -1,9 +1,9 @@
 import React from 'react';
-import { PageTemplate } from '../components/ui/PageTemplate/PageTemplate';
+import { PageTemplate } from '../components/PageTemplate/PageTemplate';
 
-import AddTaskForm from '../components/container/AddTaskForm/AddTaskForm';
-import TaskList from '../components/container/TaskList/TaskList';
-import CurrentTask from '../components/container/CurrentTask/CurrentTask';
+import AddTaskForm from '../containers/AddTaskForm/AddTaskForm';
+import TaskList from '../containers/TaskList/TaskList';
+import CurrentTask from '../containers/CurrentTask/CurrentTask';
 
 export const Tasks = () => {
   return (

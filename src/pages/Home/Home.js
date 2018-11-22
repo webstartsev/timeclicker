@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageTemplate } from '../../components/ui/PageTemplate/PageTemplate';
+import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 
-import CurrentTask from '../../components/container/CurrentTask/CurrentTask';
+import CurrentTask from '../../containers/CurrentTask/CurrentTask';
 
 import './Home.css';
 

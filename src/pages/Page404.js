@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTemplate } from '../components/ui/PageTemplate/PageTemplate';
+import { PageTemplate } from '../components/PageTemplate/PageTemplate';
 import PropTypes from 'prop-types';
 
 export const Page404 = ({ location = {} }) => (

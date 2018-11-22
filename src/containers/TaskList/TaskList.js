@@ -6,9 +6,9 @@ import {
   intervalStart,
   intervalStop,
   intervalTikTak
-} from '../../../store/actions';
+} from '../../store/actions';
 
-import TaskList from '../../ui/TaskList/TaskList';
+import TaskList from '../../components/TaskList/TaskList';
 
 const putStateToProps = state => {
   return {

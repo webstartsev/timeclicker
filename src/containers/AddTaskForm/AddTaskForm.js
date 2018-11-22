@@ -1,8 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../../store/actions';
+import { addTask } from '../../store/actions';
 
-import AddTaskFrom from '../../ui/AddTaskForm/AddTaskForm';
+import AddTaskFrom from '../../components/AddTaskForm/AddTaskForm';
 
 const putStateToProps = state => {
   return {

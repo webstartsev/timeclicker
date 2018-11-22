@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import CurrentTask from '../../ui/CurrentTask/CurrentTask';
+import CurrentTask from '../../components/CurrentTask/CurrentTask';
 
 const putStateToProps = state => {
   return {

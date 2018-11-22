@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CurrentTask.css';
 
-import { secToTime } from '../../../helpers/function';
+import { secToTime } from '../../helpers/function';
 
 const CurrentTask = ({ currentTask = {} }) => {
   if (currentTask == null) {

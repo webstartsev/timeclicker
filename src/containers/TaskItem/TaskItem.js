@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import TaskItem from '../../ui/TaskItem/TaskItem';
+import TaskItem from '../../components/TaskItem/TaskItem';
 
 const putStateToProps = state => {
   return {

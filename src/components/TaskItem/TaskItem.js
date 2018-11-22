@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TaskItem.css';
 
-import { secToTime, timeDiff } from '../../../helpers/function';
+import { secToTime, timeDiff } from '../../helpers/function';
 
 const TaskItem = ({
   tasks = {},
