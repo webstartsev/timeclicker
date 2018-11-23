@@ -13,6 +13,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { Page404 } from './pages/Page404';
 import { Tasks } from './pages/Tasks';
+import { Task } from './pages/Task';
 
 const store = createStore(
   rootReducer,
@@ -23,13 +24,12 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
-      <div className="main">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/tasks" component={Tasks} />
-          <Route component={Page404} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/tasks/:id/" component={Task} />
+        <Route path="/tasks/" component={Tasks} />
+        <Route component={Page404} />
+      </Switch>
     </HashRouter>
   </Provider>,
   document.getElementById('root')

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import './TaskItem.css';
 
 import { secToTime, timeDiff } from '../../helpers/function';
@@ -49,7 +50,7 @@ const TaskItem = ({
   return (
     <div className="TaskItem">
       <div className="TaskItem-title">
-        {task.title}
+        <NavLink to={`/tasks/${id}/`}>{task.title}</NavLink>
         {task.user !== null && <span className="TaskItem-user">{task.user.name}</span>}
       </div>
       <div className="TaskItem-detail">
