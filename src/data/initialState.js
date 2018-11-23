@@ -6,7 +6,8 @@ const initialState = {
       time: 3590,
       deadline: 0,
       diff: 0,
-      user: null
+      user: null,
+      description: 'Нужно сделать заявку на оплату по фотошопу, за который вернули деньги 30000руб.'
     },
     '0175d1f0-a8c6-41bf-8d02-df5734123123d829a4': {
       title: 'sdfsdfsfsdf',

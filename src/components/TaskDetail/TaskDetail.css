@@ -1,0 +1,36 @@
+.TaskDetail,
+.TaskDetail-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.TaskDetail-main {
+  width: 100%;
+}
+.TaskDetail-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.TaskDetail-prop,
+.TaskDetail-user {
+  display: flex;
+  align-items: center;
+}
+.TaskDetail-user {
+  margin-left: 10px;
+}
+.TaskDetail-user:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #d0021b;
+  border-radius: 100px;
+  margin-right: 5px;
+}
+.TaskDetail-detail {
+  width: 80%;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.TaskDetail-info {
+  width: 20%;
+}

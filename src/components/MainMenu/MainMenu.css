@@ -1,6 +1,7 @@
 .MainMenu {
   background: #f5f4f4;
   border-bottom: 1px solid #efefef;
+  margin-bottom: 20px;
 }
 .MainMenu-wrap {
   padding: 10px;
