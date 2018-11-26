@@ -1,0 +1,21 @@
+.TaskList-header {
+  display: flex;
+
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+.TaskList-col {
+  text-align: right;
+  width: 100px;
+  font-weight: bold;
+  color: #c1c1c1;
+  font-size: 14px;
+}
+.TaskList-col_type_name {
+  width: 55%;
+  text-align: left;
+}
+
+.TaskList-groupe {
+  display: flex;
+}

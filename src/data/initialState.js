@@ -1,36 +1,39 @@
 const initialState = {
   tasks: {
-    '0175d1f0-a8c6-41bf-8d02-df5734d829a4': {
-      id: '0175d1f0-a8c6-41bf-8d02-df5734d829a4',
+    '0175d1f0-a8c6-41bf-8d02-df5734d829a41111': {
+      id: '0175d1f0-a8c6-41bf-8d02-df5734d829a41111',
       title: 'Заявка на оплату',
       status: 'stop',
       time: 3590,
       deadline: 0,
       diff: 0,
       user: null,
+      userCreated: 1,
       description: 'Нужно сделать заявку на оплату по фотошопу, за который вернули деньги 30000руб.'
     },
-    '0175d1f0-a8c6-41bf-8d02-df5734123123d829a4': {
-      id: '0175d1f0-a8c6-41bf-8d02-df5734123123d829a4',
+    '0175d1f0-a8c6-41bf-8d02-df5734123123d829a42222': {
+      id: '0175d1f0-a8c6-41bf-8d02-df5734123123d829a42222',
       title: 'sdfsdfsfsdf',
       status: 'stop',
       time: 0,
       deadline: 2,
       diff: 0,
-      user: null
+      user: null,
+      userCreated: 2
     },
-    '0175d1f0-a8c6-41bf-8d02-df5734d85346769a4': {
-      id: '0175d1f0-a8c6-41bf-8d02-df5734d85346769a4',
+    '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333': {
+      id: '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333',
       title: '23424234у 3',
       status: 'stop',
       time: 0,
       deadline: 15,
       diff: 0,
-      user: null
+      user: null,
+      userCreated: 1
     }
   },
   taskHistory: {
-    '0175d1f0-a8c6-41bf-8d02-df5734d829a4': [
+    '0175d1f0-a8c6-41bf-8d02-df5734d829a41111': [
       {
         dateBegin: 1542983870390,
         dateEnd: 1542984363390,
@@ -42,14 +45,14 @@ const initialState = {
         dateBegin: 1542983860390,
         dateEnd: 1542983870390,
         time: 10,
-        user: 2,
+        user: 1,
         dealine: 0
       },
       {
         dateBegin: 1542983460390,
         dateEnd: 1542983860390,
         time: 400,
-        user: 2,
+        user: 1,
         dealine: 0
       },
       {
@@ -60,7 +63,7 @@ const initialState = {
         dealine: 0
       }
     ],
-    '0175d1f0-a8c6-41bf-8d02-df5734d85346769a4': [
+    '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333': [
       {
         dateBegin: 1542983870390,
         dateEnd: 1542984363390,
@@ -83,7 +86,7 @@ const initialState = {
         dateBegin: 1542983360390,
         dateEnd: 1542983460390,
         time: 100,
-        user: 1,
+        user: 2,
         dealine: 15
       }
     ]
