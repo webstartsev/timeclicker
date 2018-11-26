@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import TaskHistory from '../../containers/TaskHistory/TaskHistory';
+
 import './TaskDetail.css';
 
-const TaskDetail = ({ task = {} }) => {
+const TaskDetail = ({ task = {}, history = [] }) => {
   return (
     <div className="TaskDetail">
       <div className="TaskDetail-main">
@@ -26,12 +29,23 @@ const TaskDetail = ({ task = {} }) => {
           </div>
         </div>
       </div>
+      <div className="TaskDetail-bottom">
+        {history.length !== 0 && (
+          <div className="TaskDetail-history">
+            <h3 className="TaskDetail-sectionTitle">История изменений</h3>
+            {history.map((item, index) => (
+              <TaskHistory key={index} item={item} deadline={task.deadline} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 TaskDetail.propTypes = {
-  task: PropTypes.object
+  task: PropTypes.object,
+  history: PropTypes.array
 };
 
 export default TaskDetail;

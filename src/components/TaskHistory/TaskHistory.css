@@ -1,0 +1,19 @@
+.TaskHistory {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+.TaskHistory-date {
+  margin-right: 5px;
+}
+.TaskHistory-times {
+  display: flex;
+  margin: 5px 0;
+}
+.TaskHistory-time,
+.TaskHistory-deadline {
+  color: #c1c1c1;
+}
