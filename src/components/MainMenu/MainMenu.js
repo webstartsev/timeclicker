@@ -8,8 +8,11 @@ export const MainMenu = () => (
     <NavLink exact activeClassName="MainMenu-item_active" className="MainMenu-item" to="/">
       Главная
     </NavLink>
-    <NavLink className="MainMenu-item" activeClassName="MainMenu-item_active" to="/tasks">
+    <NavLink className="MainMenu-item" activeClassName="MainMenu-item_active" to="/tasks/">
       Задачи
+    </NavLink>
+    <NavLink className="MainMenu-item" activeClassName="MainMenu-item_active" to="/members/">
+      Пользователи
     </NavLink>
   </nav>
 );
