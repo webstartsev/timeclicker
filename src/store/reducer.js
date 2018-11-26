@@ -9,23 +9,24 @@ export const rootReducer = (state, action) => {
         ...state,
         tasks: {
           [id]: {
+            id: id,
             title: title,
             status: 'stop',
             time: 0,
             deadline: deadline || null,
-            user: null
+            user: null,
+            userCreated: state.user.id
           },
           ...state.tasks
         }
       };
     case C.START_TASK: {
-      const { id, user } = action.payload;
+      const { id, user, dateBegin } = action.payload;
 
       // TODO: Подумать
       const taskList = Object.keys(state.tasks).reduce((tasks, task) => {
         return { ...tasks, [task]: { ...state.tasks[task], status: 'stop', user: null } };
       }, {});
-
       return {
         ...state,
         tasks: {
@@ -40,12 +41,28 @@ export const rootReducer = (state, action) => {
           ...taskList[id],
           status: 'play',
           user: user
+        },
+        taskHistory: {
+          ...state.taskHistory,
+          [id]: [
+            {
+              dateBegin: dateBegin,
+              dateEnd: null,
+              user: state.user.id
+            },
+            ...(state.taskHistory[id] || []) // на пустой {} - ошибка
+          ]
         }
       };
     }
     case C.STOP_TASK: {
-      const { id } = action.payload;
+      const { id, dateEnd } = action.payload;
       const taskList = state.tasks;
+
+      const lastHistory = {
+        ...state.taskHistory[id][0],
+        dateEnd: dateEnd
+      };
       return {
         ...state,
         tasks: {
@@ -56,7 +73,12 @@ export const rootReducer = (state, action) => {
             user: null
           }
         },
-        currentTask: null
+        currentTask: null,
+        // Необходимо изменить последний taskHistory, чтобы добавить дату окончания
+        taskHistory: {
+          ...state.taskHistory,
+          [id]: [lastHistory, ...state.taskHistory[id].slice(1, state.taskHistory[id].lenght)]
+        }
       };
     }
 

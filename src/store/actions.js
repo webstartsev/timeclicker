@@ -21,7 +21,8 @@ export const startTask = (id, user) => {
     type: C.START_TASK,
     payload: {
       id: id,
-      user: user
+      user: user,
+      dateBegin: Date.parse(new Date())
     }
   };
 };
@@ -30,7 +31,8 @@ export const stopTask = id => {
   return {
     type: C.STOP_TASK,
     payload: {
-      id: id
+      id: id,
+      dateEnd: Date.parse(new Date())
     }
   };
 };
