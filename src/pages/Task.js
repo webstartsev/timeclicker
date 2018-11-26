@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 
 import TaskDetail from '../containers/TaskDetail/TaskDetail';
 
-export const Task = ({ match }) => {
-  return (
-    <PageTemplate>
-      <TaskDetail match={match} />
-    </PageTemplate>
-  );
-};
+export const Task = ({ match }) => (
+  <PageTemplate>
+    <TaskDetail match={match} />
+  </PageTemplate>
+);
 
 Task.propTypes = {
   match: PropTypes.object
