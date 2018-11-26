@@ -14,6 +14,8 @@ import { Home } from './pages/Home/Home';
 import { Page404 } from './pages/Page404';
 import { Tasks } from './pages/Tasks';
 import { Task } from './pages/Task';
+import { Members } from './pages/Members';
+import { Member } from './pages/Member';
 
 const store = createStore(
   rootReducer,
@@ -26,8 +28,13 @@ ReactDOM.render(
     <HashRouter>
       <Switch>
         <Route exact path="/" component={Home} />
+
         <Route path="/tasks/:id/" component={Task} />
         <Route path="/tasks/" component={Tasks} />
+
+        <Route path="/members/:id/" component={Member} />
+        <Route path="/members/" component={Members} />
+
         <Route component={Page404} />
       </Switch>
     </HashRouter>
