@@ -4,3 +4,19 @@
   padding: 0 10px;
   box-sizing: border-box;
 }
+
+.PageTemplate-top {
+  background: #f5f4f4;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 20px;
+}
+.PageTemplate-wrapTop {
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
