@@ -14,7 +14,7 @@ const initialState = {
     },
     '0175d1f0-a8c6-41bf-8d02-df5734123123d829a42222': {
       id: '0175d1f0-a8c6-41bf-8d02-df5734123123d829a42222',
-      title: 'sdfsdfsfsdf',
+      title: 'Привет Таймер',
       status: 'stop',
       time: 0,
       deadline: 2,
@@ -25,7 +25,7 @@ const initialState = {
     },
     '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333': {
       id: '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333',
-      title: '23424234у 3',
+      title: 'Добавление dashboard',
       status: 'stop',
       time: 0,
       deadline: 15,
@@ -38,8 +38,8 @@ const initialState = {
   taskHistory: {
     '0175d1f0-a8c6-41bf-8d02-df5734d829a41111': [
       {
-        dateBegin: 1542983870390,
-        dateEnd: 1542984363390,
+        dateBegin: 1543323336000,
+        dateEnd: 1543323336000,
         time: 493,
         user: 1,
         dealine: 0

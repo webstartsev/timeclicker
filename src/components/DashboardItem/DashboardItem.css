@@ -1,0 +1,11 @@
+.DashboardItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.DashboardItem-time {
+  color: #c1c1c1;
+}
