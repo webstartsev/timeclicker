@@ -1,4 +1,4 @@
-function secToTime(time, full = false) {
+export const secToTime = (time, full = false) => {
   // Перевод СЕКУНД во время
   // Hours, minutes and seconds
   const hrs = ~~(time / 3600);
@@ -21,15 +21,30 @@ function secToTime(time, full = false) {
   }
 
   return ret;
-}
+};
 
-function timeDiff(time, deadline) {
+export const timeDiff = (time, deadline) => {
   const deadlineTime = deadline * 60 * 60;
   const diff = deadlineTime - time;
 
   const hrs = ~~(diff / 3600);
 
   return hrs;
-}
+};
 
-export { secToTime, timeDiff };
+export const getFullDate = milliseconds => {
+  const source = new Date(milliseconds);
+  const date = source.getDate() < 10 ? `0${source.getDate()}` : source.getDate();
+  const month = source.getMonth() < 10 ? `0${source.getMonth() + 1}` : source.getMonth() + 1;
+  const year = source.getFullYear();
+
+  return `${date}.${month}.${year}`;
+};
+
+export const getTime = milliseconds => {
+  const source = new Date(milliseconds);
+  const hours = source.getHours() < 10 ? `0${source.getHours()}` : source.getHours();
+  const minutes = source.getMinutes() < 10 ? `0${source.getMinutes()}` : source.getMinutes();
+
+  return `${hours}:${minutes}`;
+};
