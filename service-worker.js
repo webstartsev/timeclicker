@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/timeclicker/precache-manifest.092fb92b56e95e49684bb352add7b98b.js"
+  "/timeclicker/precache-manifest.582d949a14cfbde2fa70271a7eee9c77.js"
 );
 
 workbox.clientsClaim();
