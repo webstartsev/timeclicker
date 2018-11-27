@@ -7,16 +7,16 @@ function secToTime(time, full = false) {
   // Output like "1:01" or "4:03:59" or "123:03:59"
   let ret = '';
   if (full) {
-    ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
-    ret += mins < 10 ? '0' + mins + ':' : mins + ':';
-    ret += secs < 10 ? '0' + secs : secs;
+    ret += hrs < 10 ? '0' + hrs + 'ч ' : hrs + 'ч ';
+    ret += mins < 10 ? '0' + mins + 'м ' : mins + 'м';
+    ret += secs < 10 ? '0' + secs + 'c ' : secs + 'c ';
   } else {
     if (hrs > 0) {
-      ret += hrs < 10 ? '0' + hrs + ':' : hrs + ':';
-      ret += mins < 10 ? '0' + mins : mins;
+      ret += hrs < 10 ? '0' + hrs + 'ч ' : hrs + 'ч ';
+      ret += mins < 10 ? '0' + mins + 'м ' : mins + 'м';
     } else {
-      ret += mins < 10 ? '0' + mins + ':' : mins + ':';
-      ret += secs < 10 ? '0' + secs : secs;
+      ret += mins < 10 ? '0' + mins + 'м ' : mins + 'м ';
+      ret += secs < 10 ? '0' + secs + 'c ' : secs + 'c';
     }
   }
 

@@ -9,6 +9,7 @@ const initialState = {
       diff: 0,
       user: null,
       userCreated: 1,
+      dateCreate: 1586552400000,
       description: 'Нужно сделать заявку на оплату по фотошопу, за который вернули деньги 30000руб.'
     },
     '0175d1f0-a8c6-41bf-8d02-df5734123123d829a42222': {
@@ -19,7 +20,8 @@ const initialState = {
       deadline: 2,
       diff: 0,
       user: null,
-      userCreated: 2
+      userCreated: 2,
+      dateCreate: 1583874000000
     },
     '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333': {
       id: '0175d1f0-a8c6-41bf-8d02-df5734d85346769a433333',
@@ -29,7 +31,8 @@ const initialState = {
       deadline: 15,
       diff: 0,
       user: null,
-      userCreated: 1
+      userCreated: 1,
+      dateCreate: 1583874000000
     }
   },
   taskHistory: {
