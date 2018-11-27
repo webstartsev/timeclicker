@@ -11,7 +11,7 @@ const putStateToProps = (state, props) => {
   const history = {
     ...item,
     user: users[item.user],
-    time: secToTime(item.time),
+    time: item.time && secToTime(item.time),
     deadline: timeDiff(item.time, deadline)
   };
   return {

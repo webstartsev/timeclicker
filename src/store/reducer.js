@@ -58,10 +58,12 @@ export const rootReducer = (state, action) => {
     case C.STOP_TASK: {
       const { id, dateEnd } = action.payload;
       const taskList = state.tasks;
+      const currentTask = state.currentTask;
 
       const lastHistory = {
         ...state.taskHistory[id][0],
-        dateEnd: dateEnd
+        dateEnd: dateEnd,
+        time: currentTask.curTime
       };
       return {
         ...state,
@@ -97,7 +99,7 @@ export const rootReducer = (state, action) => {
       };
     }
     case C.INTERVAL_TIKTAK: {
-      const { id, time } = action.payload;
+      const { id, time, curTime } = action.payload;
       const taskList = state.tasks;
       return {
         ...state,
@@ -110,7 +112,8 @@ export const rootReducer = (state, action) => {
         },
         currentTask: {
           ...taskList[id],
-          time: time
+          time: time,
+          curTime
         }
       };
     }

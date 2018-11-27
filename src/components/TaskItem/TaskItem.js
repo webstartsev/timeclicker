@@ -29,9 +29,10 @@ const TaskItem = ({
         }
 
         let time = task.time;
+        let curTime = 0;
         const timer = setInterval(() => {
           let tiktak = time++;
-          intervalTikTak(id, tiktak);
+          intervalTikTak(id, tiktak, curTime++);
         }, 1000);
 
         startTask(id, user);

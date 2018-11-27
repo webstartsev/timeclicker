@@ -12,7 +12,9 @@ const TaskHistory = ({ history }) => {
     <div className="TaskHistory">
       <div className="TaskHistory-times">
         <div className="TaskHistory-date">{`${dateBegin.getDate()}.${dateBegin.getMonth()}.${dateBegin.getFullYear()}`}</div>
-        <div className="TaskHistory-time">{`${dateBegin.getHours()}:${dateBegin.getMinutes()} - ${dateEnd.getHours()}:${dateEnd.getMinutes()}`}</div>
+        <div className="TaskHistory-time">{`${dateBegin.getHours()}:${dateBegin.getMinutes()} - ${
+          history.dateEnd !== null ? dateEnd.getHours() + ':' + dateEnd.getMinutes() : ''
+        }`}</div>
       </div>
       {history.user !== null && <MemberShort user={history.user} />}
       <div className="TaskHistory-time">{history.time}</div>

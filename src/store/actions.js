@@ -55,12 +55,13 @@ export const intervalStop = timerId => {
   };
 };
 
-export const intervalTikTak = (id, time) => {
+export const intervalTikTak = (id, time, curTime) => {
   return {
     type: C.INTERVAL_TIKTAK,
     payload: {
       id,
-      time
+      time,
+      curTime
     }
   };
 };
