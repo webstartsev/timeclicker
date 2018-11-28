@@ -9,6 +9,8 @@
 .TaskDetail-title {
   font-size: 30px;
   margin-bottom: 10px;
+  font-weight: normal;
+  margin: 0;
 }
 .TaskDetail-prop,
 .TaskDetail-user {

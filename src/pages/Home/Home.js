@@ -6,7 +6,7 @@ import Dashboard from '../../containers/Dashboard/Dashboard';
 
 export const Home = () => (
   <PageTemplate>
-    <h1>Time Clicker</h1>
+    <h1>Лента задач</h1>
     <Dashboard />
   </PageTemplate>
 );

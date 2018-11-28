@@ -13,7 +13,6 @@
   display: flex;
   margin: 5px 0;
 }
-.TaskHistory-time,
 .TaskHistory-deadline {
   color: #c1c1c1;
 }

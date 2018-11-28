@@ -10,7 +10,7 @@ const TaskDetail = ({ task = {}, history = [] }) => {
     <div className="TaskDetail">
       <div className="TaskDetail-main">
         <div className="TaskDetail-detail">
-          <div className="TaskDetail-title">{task.title}</div>
+          <h1 className="TaskDetail-title">{task.title}</h1>
           <div className="TaskDetail-description">{task.description}</div>
         </div>
         <div className="TaskDetail-info">
