@@ -1,5 +1,5 @@
-import C from '../helpers/constants';
-import TaskService from '../services/task';
+import C from '../../helpers/constants';
+import TaskService from '../../services/task';
 
 export const addTask = (title, deadline) => {
   const data = {
@@ -33,35 +33,6 @@ export const stopTask = id => {
     payload: {
       id: id,
       dateEnd: Date.parse(new Date())
-    }
-  };
-};
-
-export const intervalStart = timerId => {
-  return {
-    type: C.INTERVAL_START,
-    payload: {
-      timerId
-    }
-  };
-};
-
-export const intervalStop = timerId => {
-  return {
-    type: C.INTERVAL_STOP,
-    payload: {
-      timerId
-    }
-  };
-};
-
-export const intervalTikTak = (id, time, curTime) => {
-  return {
-    type: C.INTERVAL_TIKTAK,
-    payload: {
-      id,
-      time,
-      curTime
     }
   };
 };

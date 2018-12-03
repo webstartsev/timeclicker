@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../store/actions';
+import { addTask } from '../../store/actions/task';
 
 import AddTaskFrom from '../../components/AddTaskForm/AddTaskForm';
 

@@ -1,12 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {
-  startTask,
-  stopTask,
-  intervalStart,
-  intervalStop,
-  intervalTikTak
-} from '../../store/actions';
+import { startTask, stopTask } from '../../store/actions/task';
+import { intervalStart, intervalStop, intervalTikTak } from '../../store/actions/interval';
 
 import TaskList from '../../components/TaskList/TaskList';
 

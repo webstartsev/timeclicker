@@ -3,7 +3,7 @@ import C from '../helpers/constants';
 export const rootReducer = (state, action) => {
   switch (action.type) {
     // TASKS reducers
-    case C.ADD_TASK:
+    case C.ADD_TASK: {
       const { title, deadline, id } = action.payload;
       return {
         ...state,
@@ -20,6 +20,7 @@ export const rootReducer = (state, action) => {
           ...state.tasks
         }
       };
+    }
     case C.START_TASK: {
       const { id, user, dateBegin } = action.payload;
 
