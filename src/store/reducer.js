@@ -119,43 +119,50 @@ export const rootReducer = (state, action) => {
       };
     }
 
+    // AUTH
+    case C.SIGN_IN_REQUEST: {
+      const { method } = action.payload;
+      return {
+        ...state,
+        auth: {
+          method,
+          status: 'request'
+        }
+      };
+    }
+    case C.SIGN_IN_SUCCESS: {
+      const { method, user } = action.payload;
+      return {
+        ...state,
+        auth: {
+          method,
+          status: 'success'
+        },
+        user
+      };
+    }
+
+    case C.SIGN_IN_ERROR: {
+      const { id, time, curTime } = action.payload;
+      const taskList = state.tasks;
+      return {
+        ...state,
+        tasks: {
+          ...taskList,
+          [id]: {
+            ...taskList[id],
+            time: time
+          }
+        },
+        currentTask: {
+          ...taskList[id],
+          time: time,
+          curTime
+        }
+      };
+    }
+
     default:
       return state;
   }
 };
-
-// export const task = (state = {}, action) => {
-//   switch (action.type) {
-//     case C.ADD_TASK:
-//       return {
-//         [v4()]: {
-//           title: action.title,
-//           status: 'stop',
-//           time: null,
-//           deadline: action.deadline || null,
-//           user: null
-//         }
-//       };
-//     case C.START_TASK:
-//     case C.STOP_TASK:
-//       return state.id !== action.id
-//         ? state
-//         : {
-//             ...state,
-//             status: action.status
-//           };
-//     default:
-//       return state;
-//   }
-// };
-// export const tasks = (state = {}, action) => {
-//   switch (action.type) {
-//     case C.ADD_TASK:
-//       return [...state, task({}, action)];
-//     case C.START_TASK:
-//     case C.STOP_TASK:
-//       return state.map(c => task(c, action));
-//     default:
-//       return state;
-//   }
-// };

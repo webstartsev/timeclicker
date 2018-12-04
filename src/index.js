@@ -6,6 +6,8 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { rootReducer } from './store/reducer';
 import initialState from './data/initialState';
+import logger from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './index.css';
 
@@ -19,8 +21,12 @@ import { Members } from './pages/Members';
 import { Member } from './pages/Member';
 import { Auth } from './pages/Auth';
 
-const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
-//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunk, logger))
+);
+
 const auth = false;
 
 ReactDOM.render(

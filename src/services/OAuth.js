@@ -10,7 +10,7 @@ class AuthService {
 
     const provider = new firebase.auth.GithubAuthProvider();
 
-    firebase
+    return firebase
       .auth()
       .signInWithPopup(provider)
       .then(function(result) {
