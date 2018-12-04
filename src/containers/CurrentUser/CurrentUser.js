@@ -4,7 +4,7 @@ import MemberShort from '../../components/MemberShort/MemberShort';
 
 const putStateToProps = state => {
   return {
-    user: state.user
+    user: state.auth.user
   };
 };
 

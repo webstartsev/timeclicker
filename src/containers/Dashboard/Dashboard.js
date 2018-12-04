@@ -5,7 +5,7 @@ import Dashboard from '../../components/Dashboard/Dashboard';
 import { getFullDate, getTime, secToTime } from '../../helpers/function';
 
 const putStateToProps = state => {
-  const userId = parseInt(state.user.id);
+  const userId = state.auth.user.id;
   const allHistory = state.taskHistory;
   const allTasks = state.tasks;
 

@@ -15,7 +15,7 @@ export const rootReducer = (state, action) => {
             time: 0,
             deadline: deadline || null,
             user: null,
-            userCreated: state.user.id
+            userCreated: state.auth.user.id
           },
           ...state.tasks
         }
@@ -49,7 +49,7 @@ export const rootReducer = (state, action) => {
             {
               dateBegin: dateBegin,
               dateEnd: null,
-              user: state.user.id
+              user: state.auth.user.id
             },
             ...(state.taskHistory[id] || []) // на пустой {} - ошибка
           ]
@@ -125,6 +125,7 @@ export const rootReducer = (state, action) => {
       return {
         ...state,
         auth: {
+          ...state.auth,
           method,
           status: 'request'
         }
@@ -134,11 +135,16 @@ export const rootReducer = (state, action) => {
       const { method, user } = action.payload;
       return {
         ...state,
-        auth: {
-          method,
-          status: 'success'
+        users: {
+          ...state.users,
+          [user.id]: user
         },
-        user
+        auth: {
+          ...state.auth,
+          method,
+          status: 'success',
+          user
+        }
       };
     }
 

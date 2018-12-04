@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './AuthForm.css';
-
 const AuthForm = ({ singIn = f => f }) => {
   return (
     <div className="AuthForm">

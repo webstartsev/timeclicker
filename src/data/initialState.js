@@ -94,12 +94,17 @@ const initialState = {
       }
     ]
   },
-  user: {
-    id: 1,
-    name: 'Sergey Startsev',
-    role: 'admin',
-    avatar: 'https://randomuser.me/api/portraits/men/81.jpg'
+  auth: {
+    user: null
   },
+  // auth: {
+  //   user: {
+  //     id: 1,
+  //     name: 'Sergey Startsev',
+  //     role: 'admin',
+  //     avatar: 'https://randomuser.me/api/portraits/men/81.jpg'
+  //   }
+  // },
   users: {
     '1': {
       id: 1,
