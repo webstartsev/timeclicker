@@ -2,6 +2,29 @@ import C from '../helpers/constants';
 
 export const rootReducer = (state, action) => {
   switch (action.type) {
+    // INIT
+    case C.INIT_STATE: {
+      return {
+        ...state
+      };
+    }
+    case C.INIT_TASKS: {
+      const { tasks } = action.payload;
+      return {
+        ...state,
+        tasks
+      };
+    }
+    case C.INIT_USER: {
+      const { user } = action.payload;
+      return {
+        ...state,
+        auth: {
+          user
+        }
+      };
+    }
+
     // TASKS reducers
     case C.ADD_TASK: {
       const { title, deadline, id } = action.payload;
@@ -82,6 +105,15 @@ export const rootReducer = (state, action) => {
           ...state.taskHistory,
           [id]: [lastHistory, ...state.taskHistory[id].slice(1, state.taskHistory[id].lenght)]
         }
+      };
+    }
+    case C.SET_MY_TASK: {
+      const { tasks } = action.payload;
+      console.log('tasks: ', tasks);
+
+      return {
+        ...state,
+        tasks
       };
     }
 

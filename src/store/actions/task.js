@@ -36,3 +36,13 @@ export const stopTask = id => {
     }
   };
 };
+
+export const setMyTasks = tasks => {
+  console.log('tasks: ', tasks);
+  return {
+    type: C.SET_MY_TASK,
+    payload: {
+      tasks
+    }
+  };
+};

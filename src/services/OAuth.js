@@ -3,11 +3,6 @@ import 'firebase/auth';
 
 class AuthService {
   singInGitHub() {
-    firebase.initializeApp({
-      apiKey: 'AIzaSyBoKb142eOmh_26bJKxbVx1Usd3-eCoWRU', // Auth / General Use
-      authDomain: 'timeclickerone.firebaseapp.com' // Auth with popup/redirect
-    });
-
     const provider = new firebase.auth.GithubAuthProvider();
 
     return firebase

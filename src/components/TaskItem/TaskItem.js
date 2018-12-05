@@ -22,7 +22,7 @@ const TaskItem = ({
   // TODO: WTF? мб перенести в actions.js????? это же компонент представления!!!!
   const actionTask = (id, status) => {
     switch (status) {
-      case 'play':
+      case 'play': {
         if (timerId !== null) {
           clearInterval(timerId);
           intervalStop(timerId);
@@ -38,6 +38,7 @@ const TaskItem = ({
         startTask(id, user);
         intervalStart(timer);
         break;
+      }
       case 'stop':
         clearInterval(timerId);
 
@@ -52,7 +53,7 @@ const TaskItem = ({
     <div className="TaskItem">
       <div className="TaskItem-title">
         <NavLink to={`/tasks/${id}/`}>{task.title}</NavLink>
-        {task.user !== null && <span className="TaskItem-user">{task.user.name}</span>}
+        {/* {task.user !== null && <span className="TaskItem-user">{task.user.name}</span>} */}
       </div>
       <div className="TaskItem-detail">
         <div className="TaskItem-action">
