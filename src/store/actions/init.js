@@ -1,17 +1,15 @@
 import C from '../../helpers/constants';
 import DB from '../../services/db';
 
-DB.getCurrentUser();
-
 export const initState = () => async dispatch => {
-  // const initUser = user => {
-  //   dispatch({
-  //     type: C.INIT_USER,
-  //     payload: {
-  //       user
-  //     }
-  //   });
-  // };
+  const initUsers = users => {
+    dispatch({
+      type: C.INIT_USERS,
+      payload: {
+        users
+      }
+    });
+  };
 
   const initTasks = tasks => {
     dispatch({
@@ -24,11 +22,11 @@ export const initState = () => async dispatch => {
 
   dispatch({ type: C.INIT_STATE });
   try {
-    // const user = await DB.getCurrentUser();
-    // initUser(user);
+    const users = await DB.getUsers();
+    initUsers(users);
 
     const tasks = await DB.getMyTasks();
-    return initTasks(tasks);
+    initTasks(tasks);
   } catch (error) {
     console.log('error: ', error);
   }

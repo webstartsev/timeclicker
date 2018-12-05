@@ -15,13 +15,11 @@ export const rootReducer = (state, action) => {
         tasks
       };
     }
-    case C.INIT_USER: {
-      const { user } = action.payload;
+    case C.INIT_USERS: {
+      const { users } = action.payload;
       return {
         ...state,
-        auth: {
-          user
-        }
+        users
       };
     }
 

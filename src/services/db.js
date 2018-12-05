@@ -20,7 +20,16 @@ class DB {
       .equalTo(userId)
       .once('value')
       .then(snapshot => {
-        console.log(snapshot.val());
+        return snapshot.val();
+      });
+  }
+
+  getUsers() {
+    return this.database
+      .ref('/users/')
+      .once('value')
+      .then(snapshot => {
+        console.log('snapshot.val(): ', snapshot.val());
         return snapshot.val();
       });
   }

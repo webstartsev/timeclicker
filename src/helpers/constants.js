@@ -13,7 +13,7 @@ const constants = {
   SIGN_IN_ERROR: 'SIGN_IN_ERROR',
 
   INIT_STATE: 'INIT_STATE',
-  INIT_USER: 'INIT_USER',
+  INIT_USERS: 'INIT_USERS',
   INIT_TASKS: 'INIT_TASKS'
 };
 export default constants;
