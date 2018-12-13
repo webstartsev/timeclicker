@@ -2,6 +2,9 @@
 
 Приложение таск-трекер. Ведет список задач по пользователю.
 
+[APP](https://timeclickerone.firebaseapp.com/#/tasks/) - Приложение
+[DEMO](https://webstartsev.github.io/timeclicker/) - Демо данные
+
 ## Возможности
 
 - Добавление задач с крайним сроком в часа;
@@ -9,7 +12,3 @@
 - Детально описание задачи с историей ее выполнения;
 - Лента задач (Dashboar);
 - Список пользователей в команде.
-
-[APP](https://timeclickerone.firebaseapp.com/#/tasks/) - Приложение
-
-[DEMO](https://webstartsev.github.io/timeclicker/) - Демо данные
