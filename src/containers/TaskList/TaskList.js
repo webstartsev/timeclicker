@@ -7,9 +7,9 @@ import TaskList from '../../components/TaskList/TaskList';
 
 const putStateToProps = state => {
   return {
-    tasks: state.tasks,
-    user: state.user,
-    timerId: state.timerId
+    tasks: state.task.tasks,
+    user: state.auth.user,
+    timerId: state.task.timerId
   };
 };
 
@@ -23,7 +23,4 @@ const putActionstoProps = dispatch => {
   };
 };
 
-export default connect(
-  putStateToProps,
-  putActionstoProps
-)(TaskList);
+export default connect(putStateToProps, putActionstoProps)(TaskList);

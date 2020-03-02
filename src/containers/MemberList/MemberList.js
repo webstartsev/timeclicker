@@ -4,7 +4,7 @@ import MemberList from '../../components/MemberList/MemberList';
 
 const putStateToProps = state => {
   return {
-    users: state.users
+    users: state.auth.users
   };
 };
 

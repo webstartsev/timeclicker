@@ -7,7 +7,6 @@ import MemberDetail from '../containers/MemberDetail/MemberDetail';
 export const Member = ({ match }) => (
   <PageTemplate>
     <MemberDetail match={match} />
-    {console.log(match)}
   </PageTemplate>
 );
 

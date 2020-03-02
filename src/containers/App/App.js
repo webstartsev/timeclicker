@@ -16,7 +16,4 @@ const putActiontoProps = dispatch => {
   };
 };
 
-export default connect(
-  putStateToProps,
-  putActiontoProps
-)(App);
+export default connect(putStateToProps, putActiontoProps)(App);

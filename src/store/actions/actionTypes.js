@@ -1,8 +1,9 @@
-const constants = {
+export default {
   ADD_TASK: 'ADD_TASK',
   START_TASK: 'START_TASK',
   STOP_TASK: 'STOP_TASK',
   SET_MY_TASK: 'SET_MY_TASK',
+  GET_TASKS: 'GET_TASKS',
 
   INTERVAL_START: 'INTERVAL_START',
   INTERVAL_STOP: 'INTERVAL_STOP',
@@ -16,4 +17,3 @@ const constants = {
   INIT_USERS: 'INIT_USERS',
   INIT_TASKS: 'INIT_TASKS'
 };
-export default constants;

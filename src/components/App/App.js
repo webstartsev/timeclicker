@@ -42,7 +42,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  auth: PropTypes.bool
+  auth: PropTypes.object,
+  initState: PropTypes.func
 };
 
 export default App;

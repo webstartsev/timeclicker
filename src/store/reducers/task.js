@@ -1,30 +1,14 @@
-import C from '../helpers/constants';
+import TYPES from '../actions/actionTypes';
 
-export const rootReducer = (state, action) => {
+const initialState = {
+  tasks: {},
+  taskHistory: {},
+  currentTask: null
+};
+
+export default function taskReducer(state = initialState, action) {
   switch (action.type) {
-    // INIT
-    case C.INIT_STATE: {
-      return {
-        ...state
-      };
-    }
-    case C.INIT_TASKS: {
-      const { tasks } = action.payload;
-      return {
-        ...state,
-        tasks
-      };
-    }
-    case C.INIT_USERS: {
-      const { users } = action.payload;
-      return {
-        ...state,
-        users
-      };
-    }
-
-    // TASKS reducers
-    case C.ADD_TASK: {
+    case TYPES.ADD_TASK: {
       const { title, deadline, id } = action.payload;
       return {
         ...state,
@@ -42,7 +26,7 @@ export const rootReducer = (state, action) => {
         }
       };
     }
-    case C.START_TASK: {
+    case TYPES.START_TASK: {
       const { id, user, dateBegin } = action.payload;
 
       // TODO: Подумать
@@ -77,7 +61,7 @@ export const rootReducer = (state, action) => {
         }
       };
     }
-    case C.STOP_TASK: {
+    case TYPES.STOP_TASK: {
       const { id, dateEnd } = action.payload;
       const taskList = state.tasks;
       const currentTask = state.currentTask;
@@ -105,7 +89,7 @@ export const rootReducer = (state, action) => {
         }
       };
     }
-    case C.SET_MY_TASK: {
+    case TYPES.SET_MY_TASK: {
       const { tasks } = action.payload;
       console.log('tasks: ', tasks);
 
@@ -114,91 +98,14 @@ export const rootReducer = (state, action) => {
         tasks
       };
     }
-
-    // INTERVAL reducers
-    case C.INTERVAL_START: {
-      const { timerId } = action.payload;
+    case TYPES.GET_TASKS: {
+      const { tasks } = action.payload;
       return {
         ...state,
-        timerId
+        tasks
       };
     }
-    case C.INTERVAL_STOP: {
-      return {
-        ...state,
-        timerId: null
-      };
-    }
-    case C.INTERVAL_TIKTAK: {
-      const { id, time, curTime } = action.payload;
-      const taskList = state.tasks;
-      return {
-        ...state,
-        tasks: {
-          ...taskList,
-          [id]: {
-            ...taskList[id],
-            time: time
-          }
-        },
-        currentTask: {
-          ...taskList[id],
-          time: time,
-          curTime
-        }
-      };
-    }
-
-    // AUTH
-    case C.SIGN_IN_REQUEST: {
-      const { method } = action.payload;
-      return {
-        ...state,
-        auth: {
-          ...state.auth,
-          method,
-          status: 'request'
-        }
-      };
-    }
-    case C.SIGN_IN_SUCCESS: {
-      const { method, user } = action.payload;
-      return {
-        ...state,
-        users: {
-          ...state.users,
-          [user.id]: user
-        },
-        auth: {
-          ...state.auth,
-          method,
-          status: 'success',
-          user
-        }
-      };
-    }
-
-    case C.SIGN_IN_ERROR: {
-      const { id, time, curTime } = action.payload;
-      const taskList = state.tasks;
-      return {
-        ...state,
-        tasks: {
-          ...taskList,
-          [id]: {
-            ...taskList[id],
-            time: time
-          }
-        },
-        currentTask: {
-          ...taskList[id],
-          time: time,
-          curTime
-        }
-      };
-    }
-
     default:
       return state;
   }
-};
+}

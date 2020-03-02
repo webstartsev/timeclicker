@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import MemberDetail from '../../components/MemberDetail/MemberDetail';
 
 const putStateToProps = (state, props) => {
-  console.log('props: ', props);
   const userId = props.match.params.id;
-  console.log('props.match.params.id: ', props.match.params.id);
-  console.log('userId: ', userId);
 
   // TODO: Доделать список задач у пользотвателя
-  const alltasks = state.tasks;
+  const alltasks = state.task.tasks;
 
   // Получаем список задач выбранного пользователя
   const tasks = Object.keys(alltasks).reduce((object, id) => {
@@ -21,9 +18,9 @@ const putStateToProps = (state, props) => {
     }
     return object;
   }, {});
-  console.log(state.users);
+  console.log('state: ', state);
   return {
-    user: state.users[userId],
+    user: state.auth.users,
     tasks
   };
 };

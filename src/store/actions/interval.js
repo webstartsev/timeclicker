@@ -1,8 +1,8 @@
-import C from '../../helpers/constants';
+import TYPES from './actionTypes';
 
 export const intervalStart = timerId => {
   return {
-    type: C.INTERVAL_START,
+    type: TYPES.INTERVAL_START,
     payload: {
       timerId
     }
@@ -11,7 +11,7 @@ export const intervalStart = timerId => {
 
 export const intervalStop = timerId => {
   return {
-    type: C.INTERVAL_STOP,
+    type: TYPES.INTERVAL_STOP,
     payload: {
       timerId
     }
@@ -20,7 +20,7 @@ export const intervalStop = timerId => {
 
 export const intervalTikTak = (id, time, curTime) => {
   return {
-    type: C.INTERVAL_TIKTAK,
+    type: TYPES.INTERVAL_TIKTAK,
     payload: {
       id,
       time,

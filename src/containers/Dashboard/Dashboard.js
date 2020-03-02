@@ -6,8 +6,8 @@ import { getFullDate, getTime, secToTime } from '../../helpers/function';
 
 const putStateToProps = state => {
   const userId = state.auth.user.id;
-  const allHistory = state.taskHistory;
-  const allTasks = state.tasks;
+  const allHistory = state.task.taskHistory;
+  const allTasks = state.task.tasks;
 
   const taskGroup = {};
 
@@ -32,7 +32,7 @@ const putStateToProps = state => {
         group[date] = res;
       }
     });
-    console.log('group: ', group);
+    // console.log('group: ', group);
     // // TODO: вернуть новый объект
     // const res = Object.keys(group).map(date => {
     //   return {
@@ -48,7 +48,7 @@ const putStateToProps = state => {
       taskGroup[date] = [...group[date], ...(taskGroup[date] || [])];
     });
   });
-  console.log('taskGroup: ', taskGroup);
+  // console.log('taskGroup: ', taskGroup);
 
   return {
     taskGroup: taskGroup

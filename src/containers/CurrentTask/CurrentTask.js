@@ -4,7 +4,7 @@ import CurrentTask from '../../components/CurrentTask/CurrentTask';
 
 const putStateToProps = state => {
   return {
-    currentTask: state.currentTask
+    currentTask: state.task.currentTask
   };
 };
 

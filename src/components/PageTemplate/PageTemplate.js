@@ -22,5 +22,5 @@ export const PageTemplate = ({ children = [] }) => (
   </div>
 );
 PageTemplate.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };

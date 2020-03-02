@@ -1,10 +1,10 @@
-import C from '../../helpers/constants';
+import TYPES from './actionTypes';
 import DB from '../../services/db';
 
 export const initState = () => async dispatch => {
   const initUsers = users => {
     dispatch({
-      type: C.INIT_USERS,
+      type: TYPES.INIT_USERS,
       payload: {
         users
       }
@@ -13,14 +13,14 @@ export const initState = () => async dispatch => {
 
   const initTasks = tasks => {
     dispatch({
-      type: C.INIT_TASKS,
+      type: TYPES.INIT_TASKS,
       payload: {
         tasks
       }
     });
   };
 
-  dispatch({ type: C.INIT_STATE });
+  dispatch({ type: TYPES.INIT_STATE });
   try {
     const users = await DB.getUsers();
     initUsers(users);
@@ -33,13 +33,13 @@ export const initState = () => async dispatch => {
 
   // const onRequest = () => {
   //   dispatch({
-  //     type: C.SIGN_IN_REQUEST
+  //     type: TYPES.SIGN_IN_REQUEST
   //   });
   // };
 
   // const onSuccess = (method, user) => {
   //   dispatch({
-  //     type: C.SIGN_IN_SUCCESS,
+  //     type: TYPES.SIGN_IN_SUCCESS,
   //     payload: {
   //       method,
   //       user: {
@@ -54,7 +54,7 @@ export const initState = () => async dispatch => {
   // };
   // const onError = (method, error) => {
   //   dispatch({
-  //     type: C.SIGN_IN_ERROR,
+  //     type: TYPES.SIGN_IN_ERROR,
   //     payload: {
   //       method,
   //       error

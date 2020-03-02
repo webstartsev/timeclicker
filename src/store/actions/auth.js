@@ -1,10 +1,10 @@
-import C from '../../helpers/constants';
+import TYPES from './actionTypes';
 import AuthService from '../../services/OAuth';
 
 export const singIn = method => async dispatch => {
   const onRequest = method => {
     dispatch({
-      type: C.SIGN_IN_REQUEST,
+      type: TYPES.SIGN_IN_REQUEST,
       payload: {
         method
       }
@@ -13,7 +13,7 @@ export const singIn = method => async dispatch => {
 
   const onSuccess = (method, user) => {
     dispatch({
-      type: C.SIGN_IN_SUCCESS,
+      type: TYPES.SIGN_IN_SUCCESS,
       payload: {
         method,
         user: {
@@ -28,7 +28,7 @@ export const singIn = method => async dispatch => {
   };
   const onError = (method, error) => {
     dispatch({
-      type: C.SIGN_IN_ERROR,
+      type: TYPES.SIGN_IN_ERROR,
       payload: {
         method,
         error

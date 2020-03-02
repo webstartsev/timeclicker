@@ -1,13 +1,17 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 
+const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+const DATABASE_URL = process.env.REACT_APP_FIREBASE_DATABASE_URL;
+const AUTH_DOMAIN = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+
 class DB {
   constructor() {
     // WARNING: apiKey необходимо перенести на сервер
     firebase.initializeApp({
-      apiKey: 'AIzaSyBoKb142eOmh_26bJKxbVx1Usd3-eCoWRU',
-      databaseURL: 'https://timeclickerone.firebaseio.com/',
-      authDomain: 'timeclickerone.firebaseapp.com'
+      apiKey: API_KEY,
+      databaseURL: DATABASE_URL,
+      authDomain: AUTH_DOMAIN
     });
 
     this.database = firebase.database();
@@ -29,7 +33,7 @@ class DB {
       .ref('/users/')
       .once('value')
       .then(snapshot => {
-        console.log('snapshot.val(): ', snapshot.val());
+        // console.log('snapshot.val(): ', snapshot.val());
         return snapshot.val();
       });
   }

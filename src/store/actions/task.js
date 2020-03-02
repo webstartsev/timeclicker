@@ -1,5 +1,6 @@
-import C from '../../helpers/constants';
+import TYPES from './actionTypes';
 import TaskService from '../../services/task';
+import DB from '../../services/db';
 
 export const addTask = (title, deadline) => {
   const data = {
@@ -8,7 +9,7 @@ export const addTask = (title, deadline) => {
   };
   const newTaskId = TaskService.addNewTask(data);
   return {
-    type: C.ADD_TASK,
+    type: TYPES.ADD_TASK,
     payload: {
       ...data,
       id: newTaskId
@@ -18,7 +19,7 @@ export const addTask = (title, deadline) => {
 
 export const startTask = (id, user) => {
   return {
-    type: C.START_TASK,
+    type: TYPES.START_TASK,
     payload: {
       id: id,
       user: user,
@@ -29,7 +30,7 @@ export const startTask = (id, user) => {
 
 export const stopTask = id => {
   return {
-    type: C.STOP_TASK,
+    type: TYPES.STOP_TASK,
     payload: {
       id: id,
       dateEnd: Date.parse(new Date())
@@ -40,9 +41,22 @@ export const stopTask = id => {
 export const setMyTasks = tasks => {
   console.log('tasks: ', tasks);
   return {
-    type: C.SET_MY_TASK,
+    type: TYPES.SET_MY_TASK,
     payload: {
       tasks
     }
+  };
+};
+
+export const getTasks = () => {
+  return async dispatch => {
+    const tasks = await DB.getMyTasks();
+
+    dispatch({
+      type: TYPES.INIT_TASKS,
+      payload: {
+        tasks
+      }
+    });
   };
 };
