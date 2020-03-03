@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import MemberShort from '../../components/MemberShort/MemberShort';
 import { getUsers } from '../../store/actions/users';
+import './MemberList.css';
 
 class MemberList extends Component {
   componentDidMount() {
