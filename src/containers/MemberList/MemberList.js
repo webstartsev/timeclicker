@@ -16,9 +16,9 @@ class MemberList extends Component {
     return (
       <div className="MemberList">
         <h1 className="MemberList-name">Список пользователей</h1>
-        {Object.keys(users).map(id => (
-          <div key={id} className="MemberList-item">
-            <MemberShort user={users[id]} />
+        {users.map(user => (
+          <div key={user.id} className="MemberList-item">
+            <MemberShort user={user} />
           </div>
         ))}
       </div>

@@ -1,8 +1,5 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import App from '../../components/App/App';
-
-import { initState } from '../../store/actions/init';
 
 const putStateToProps = state => {
   return {
@@ -10,10 +7,4 @@ const putStateToProps = state => {
   };
 };
 
-const putActiontoProps = dispatch => {
-  return {
-    initState: bindActionCreators(initState, dispatch)
-  };
-};
-
-export default connect(putStateToProps, putActiontoProps)(App);
+export default connect(putStateToProps)(App);

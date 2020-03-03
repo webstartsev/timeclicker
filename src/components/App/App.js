@@ -11,12 +11,6 @@ import { Member } from '../../pages/Member';
 import { Auth } from '../../pages/Auth';
 
 class App extends React.Component {
-  componentDidMount() {
-    const { auth } = this.props;
-    if (auth.user !== null) {
-      this.props.initState();
-    }
-  }
   render() {
     const { auth } = this.props;
     return (
@@ -42,8 +36,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  auth: PropTypes.object,
-  initState: PropTypes.func
+  auth: PropTypes.object
 };
 
 export default App;
