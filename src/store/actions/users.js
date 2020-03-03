@@ -13,3 +13,23 @@ export const getUsers = () => {
     });
   };
 };
+
+export const getUser = userId => {
+  return async dispatch => {
+    const response = await DB.getUser(userId);
+
+    let user = null;
+    if (response) {
+      Object.keys(response).forEach(key => {
+        user = response[key];
+      });
+    }
+
+    dispatch({
+      type: TYPES.GET_USER,
+      payload: {
+        user
+      }
+    });
+  };
+};

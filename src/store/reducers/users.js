@@ -1,7 +1,8 @@
 import TYPES from '../actions/actionTypes';
 
 const initialState = {
-  users: []
+  users: [],
+  user: null
 };
 
 export default function usersReducer(state = initialState, action) {
@@ -11,6 +12,13 @@ export default function usersReducer(state = initialState, action) {
       return {
         ...state,
         users
+      };
+    }
+    case TYPES.GET_USER: {
+      const { user } = action.payload;
+      return {
+        ...state,
+        user
       };
     }
     default:

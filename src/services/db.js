@@ -7,7 +7,6 @@ const AUTH_DOMAIN = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
 
 class DB {
   constructor() {
-    // WARNING: apiKey необходимо перенести на сервер
     firebase.initializeApp({
       apiKey: API_KEY,
       databaseURL: DATABASE_URL,
@@ -17,7 +16,7 @@ class DB {
     this.database = firebase.database();
   }
 
-  getMyTasks(userId = 1) {
+  getTasks(userId) {
     return this.database
       .ref('/tasks/')
       .orderByChild('userCreated')
@@ -33,7 +32,16 @@ class DB {
       .ref('/users/')
       .once('value')
       .then(snapshot => {
-        // console.log('snapshot.val(): ', snapshot.val());
+        return snapshot.val();
+      });
+  }
+  getUser(userId) {
+    return this.database
+      .ref('/users/')
+      .orderByChild('id')
+      .equalTo(userId)
+      .once('value')
+      .then(snapshot => {
         return snapshot.val();
       });
   }

@@ -11,7 +11,7 @@ const MemberTaskItem = ({ task = {} }) => {
     <div className="TaskItem">
       <div className="TaskItem-title">
         <NavLink to={`/tasks/${task.id}/`}>{task.title}</NavLink>
-        {task.user !== null && <span className="TaskItem-user">{task.user.name}</span>}
+        {task.user && <span className="TaskItem-user">{task.user.name}</span>}
       </div>
       <div className="TaskItem-detail">
         <div className="TaskItem-times">

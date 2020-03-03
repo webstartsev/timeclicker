@@ -5,7 +5,7 @@ import MemberTaskItem from '../MemberTaskItem/MemberTaskItem';
 
 import './MemberTaskList.css';
 
-const MemberTaskList = ({ tasks = {} }) => (
+const MemberTaskList = ({ tasks = [] }) => (
   <div className="TaskList">
     <div className="TaskList-header">
       <div className="TaskList-col TaskList-col_type_name">Название</div>
@@ -15,14 +15,14 @@ const MemberTaskList = ({ tasks = {} }) => (
         <div className="TaskList-col">Разница</div>
       </div>
     </div>
-    {Object.keys(tasks).map(id => (
-      <MemberTaskItem key={id} id={id} task={tasks[id]} />
+    {tasks.map(task => (
+      <MemberTaskItem key={task.id} id={task.id} task={task} />
     ))}
   </div>
 );
 
 MemberTaskList.propTypes = {
-  tasks: PropTypes.object
+  tasks: PropTypes.array
 };
 
 export default MemberTaskList;

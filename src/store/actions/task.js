@@ -48,9 +48,17 @@ export const setMyTasks = tasks => {
   };
 };
 
-export const getTasks = () => {
+export const getTasks = userId => {
   return async dispatch => {
-    const tasks = await DB.getMyTasks();
+    const response = await DB.getTasks(userId);
+
+    const tasks = [];
+
+    if (response) {
+      Object.keys(response).forEach(key => {
+        tasks.push(response[key]);
+      });
+    }
 
     dispatch({
       type: TYPES.GET_TASKS,
