@@ -53,7 +53,7 @@ export const getTasks = () => {
     const tasks = await DB.getMyTasks();
 
     dispatch({
-      type: TYPES.INIT_TASKS,
+      type: TYPES.GET_TASKS,
       payload: {
         tasks
       }
