@@ -68,3 +68,23 @@ export const getTasks = userId => {
     });
   };
 };
+
+export const getTask = taskId => {
+  return async dispatch => {
+    const response = await DB.getTask(taskId);
+
+    let task = null;
+    if (response) {
+      Object.keys(response).forEach(key => {
+        task = response[key];
+      });
+    }
+
+    dispatch({
+      type: TYPES.GET_TASK,
+      payload: {
+        task
+      }
+    });
+  };
+};

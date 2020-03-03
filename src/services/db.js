@@ -26,6 +26,25 @@ class DB {
         return snapshot.val();
       });
   }
+  getTask(taskId) {
+    return this.database
+      .ref('/tasks/')
+      .orderByChild('id')
+      .equalTo(taskId)
+      .once('value')
+      .then(snapshot => {
+        const data = snapshot.val();
+        const task = Object.keys(data).reduce((acc, key) => {
+          return { ...acc, ...data[key] };
+        }, {});
+
+        const dataUser = this.getUser(task.userCreated).then(response => response);
+
+        console.log('dataUser: ', dataUser);
+
+        return data;
+      });
+  }
 
   getUsers() {
     return this.database

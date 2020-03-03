@@ -1,8 +1,9 @@
 import TYPES from '../actions/actionTypes';
 
 const initialState = {
+  task: null,
   tasks: [],
-  taskHistory: {},
+  taskHistory: [],
   currentTask: null
 };
 
@@ -101,6 +102,13 @@ export default function taskReducer(state = initialState, action) {
       return {
         ...state,
         tasks
+      };
+    }
+    case TYPES.GET_TASK: {
+      const { task } = action.payload;
+      return {
+        ...state,
+        task
       };
     }
     default:

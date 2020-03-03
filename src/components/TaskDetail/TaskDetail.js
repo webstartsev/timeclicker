@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TaskHistory from '../../containers/TaskHistory/TaskHistory';
-
 import './TaskDetail.css';
 
 const TaskDetail = ({ task = {}, history = [] }) => {
-  return (
+  console.log('task: ', task);
+  return task ? (
     <div className="TaskDetail">
       <div className="TaskDetail-main">
         <div className="TaskDetail-detail">
@@ -40,7 +39,7 @@ const TaskDetail = ({ task = {}, history = [] }) => {
         )}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 TaskDetail.propTypes = {
