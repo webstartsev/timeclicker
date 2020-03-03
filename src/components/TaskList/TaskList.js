@@ -10,7 +10,7 @@ class TaskList extends Component {
   }
 
   componentDidMount = async () => {
-    this.props.getTasks();
+    this.props.getTasks(this.props.user.id);
   };
 
   render() {
@@ -25,7 +25,7 @@ class TaskList extends Component {
       intervalTikTak,
       onChangeDeadline
     } = this.props;
-
+    console.log('tasks: ', tasks);
     return (
       <div className="TaskList">
         <div className="TaskList-header">
@@ -37,12 +37,12 @@ class TaskList extends Component {
             <div className="TaskList-col">Разница</div>
           </div>
         </div>
-        {Object.keys(tasks).map(id => (
+        {tasks.map(task => (
           <TaskItem
-            key={id}
-            id={id}
+            key={task.id}
+            id={task.id}
             user={user}
-            tasks={tasks}
+            task={task}
             timerId={timerId}
             startTask={startTask}
             stopTask={stopTask}
@@ -58,7 +58,7 @@ class TaskList extends Component {
 }
 
 TaskList.propTypes = {
-  tasks: PropTypes.object,
+  tasks: PropTypes.array,
   user: PropTypes.object,
   timerId: PropTypes.number,
   startTask: PropTypes.func,

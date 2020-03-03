@@ -6,6 +6,7 @@ import { intervalStart, intervalStop, intervalTikTak } from '../../store/actions
 import TaskList from '../../components/TaskList/TaskList';
 
 const putStateToProps = state => {
+  console.log('state.task: ', state.task);
   return {
     tasks: state.task.tasks,
     user: state.auth.user,
@@ -20,7 +21,7 @@ const putActionstoProps = dispatch => {
     intervalStart: bindActionCreators(intervalStart, dispatch),
     intervalStop: bindActionCreators(intervalStop, dispatch),
     intervalTikTak: bindActionCreators(intervalTikTak, dispatch),
-    getTasks: () => dispatch(getTasks())
+    getTasks: userId => dispatch(getTasks(userId))
   };
 };
 

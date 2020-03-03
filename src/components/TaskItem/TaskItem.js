@@ -6,7 +6,7 @@ import './TaskItem.css';
 import { secToTime, timeDiff } from '../../helpers/function';
 
 const TaskItem = ({
-  tasks = {},
+  task = {},
   user = {},
   timerId = null,
   startTask = f => f,
@@ -16,7 +16,6 @@ const TaskItem = ({
   intervalTikTak = f => f,
   id = null
 }) => {
-  const task = tasks[id];
   const diff = timeDiff(task.time, task.deadline);
 
   // TODO: WTF? мб перенести в actions.js????? это же компонент представления!!!!
@@ -98,7 +97,7 @@ const TaskItem = ({
 };
 
 TaskItem.propTypes = {
-  tasks: PropTypes.object,
+  task: PropTypes.object,
   user: PropTypes.object,
   timerId: PropTypes.number,
   startTask: PropTypes.func,
