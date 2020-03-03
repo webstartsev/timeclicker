@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { Page404 } from '../../pages/Page404';
-import { Tasks } from '../../pages/Tasks';
-import { Task } from '../../pages/Task';
-import { Members } from '../../pages/Members';
-import { Member } from '../../pages/Member';
-import { Auth } from '../../pages/Auth';
+import { Home } from './pages/Home/Home';
+import { Page404 } from './pages/Page404';
+import { Tasks } from './pages/Tasks';
+import { Task } from './pages/Task';
+import { Members } from './pages/Members';
+import { Member } from './pages/Member';
+import { Auth } from './pages/Auth';
 
 class App extends React.Component {
   render() {

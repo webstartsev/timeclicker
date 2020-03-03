@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 
-import App from './containers/App/App';
+import App from './App';
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
